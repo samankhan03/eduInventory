@@ -88,6 +88,13 @@ section {
     cursor: pointer;
     color: #fff; /* Text color */
 }
+.search-icon img {
+   object-fit: scale-down;
+    height: 20px;
+    width: 20px;
+    position: relative;right: 187px; top: 2px;
+
+}
 
 #inventory-list {
     background-color: #fff;
