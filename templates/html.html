@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InvHtml</title>
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+   
+
+</head>
+<body>
+
+<main> 
+    <section id="filter-list"> 
+    <div class="inventory-header">
+        <h2> Inventory </h2>
+    <div class="custom-dropdown-one">
+        <select id="sort-filter">
+            <option value="name">Category: All </option>
+            <option value="date">Date</option>
+            <option value="price">Price</option>
+        </select>
+         
+    </div>
+        
+        <div class="custom-dropdown-two">
+        <select id="brand-filter">
+            <option value="name">Return Date: </option>
+            <option value="date">Date</option>
+            <option value="price">Price</option>
+        </select>
+         
+    </div>
+        <div class="search-bar">
+            <form action="/search" method="get">
+                <input type="text" name="q" placeholder="Quick Search">
+                <button type="submit"> </button>
+            </form>
+        </div>
+</div>
+        
+        
+   
+    
+    <section id="inventory-list"> 
+         <div class="inventory-filter">
+             <div class="custom-dropdown"> 
+                <select id="stock-filter">
+                    <option value="all">All </option>
+                    <option value="in-stock"> Available </option>
+                    <option value="out-of-stock"> Unavailable </option>
+                </select>
+                <span class="arrow">▼</span>
+             </div>
+    </div>
+        
+        <div class="inventory-items">
+        <label>
+            <input type="checkbox" name="item1"> 
+            <img src="icon1.png" alt="Icon 1"> 
+            Item 1
+        </label>
+        <label>
+            <input type="checkbox" name="item2">
+            <img src="icon2.png" alt="Icon 2">
+            Item 2
+        </label>
+        <label>
+            <input type="checkbox" name="item3"> 
+            <img src="icon3.png" alt="Icon 3">
+            Item 3
+        </label>
+            <label>
+            <input type="checkbox" name="item4">
+                <img src="icon4.png" alt="Icon 4">
+                Item 4
+        </label>
+        <label>
+            <input type="checkbox" name="item5">
+            <img src="icon5.png" alt="Icon 5">
+            Item 5
+        </label>
+        <label>
+            <input type="checkbox" name="item6">
+            <img src="icon6.png" alt="Icon 6">
+            Item 6
+        </label>
+        
+    </div> 
+    </section>
+    
+    
+</main>
+
+</body>
+</html>
