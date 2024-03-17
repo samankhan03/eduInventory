@@ -89,6 +89,7 @@ section {
     color: #fff; /* Text color */
 }
 .search-icon img {
+    /* comment */
    object-fit: scale-down;
     height: 20px;
     width: 20px;
