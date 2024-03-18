@@ -5,7 +5,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Inventory Page:)")
-
-def htmlCall(request):
     return render(request, 'inventory_user.html')
+
+
+def admin(request):
+    return HttpResponse('<p>hello </p>')
