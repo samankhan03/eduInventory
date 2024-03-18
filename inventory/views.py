@@ -8,4 +8,4 @@ def index(request):
     return HttpResponse("Inventory Page:)")
 
 def htmlCall(request):
-    return render(request, 'html.html')
+    return render(request, 'inventory_user.html')
