@@ -49,7 +49,34 @@ body {
     color: #949494 ;
 
 }
+.bell-icon {
+    position: relative; bottom: 49px; right: 135px;
+    margin: 21px;
+    color: #949494 ;
 
+}
+.settings2-icon {
+    position: relative; bottom: 133px; right: 57px;
+
+}
+
+.inv-icon {
+    position: relative; top: 63px; left: 13px;
+}
+.person-icon {
+      position: relative; top: 473px; left: 6px;
+}
+
+.basket-icon {
+     position: relative; top: 7px; left: 6px;
+}
+
+.rocket-icon {
+    position: relative; top: 0px; left: 4px;
+}
+.calendar-icon {
+    position: relative; top: -8px; left: 2px;
+}
 
 .nav-list li {
     display: inline;
@@ -273,6 +300,18 @@ section {
 }
 .header-item-name {
     margin-left: -47px; /* Adjust the negative margin as needed to move the header to the left */
+}
+.add-button {
+    position: relative; right: 40px;
+    color: #9796a8;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: #9796a8;
+    font-size: 11px;
+    background-color: white;
 }
 
 
