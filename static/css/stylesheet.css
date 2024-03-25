@@ -3,6 +3,8 @@ body {
     font-family: Arial, SansSerif;
     margin-left: 40px;
     margin-top:3px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 #inv {
@@ -61,22 +63,23 @@ body {
 }
 
 .inv-icon {
-    position: relative; top: 63px; left: 13px;
+    position: relative; top: 7px; left: 13px;
 }
 .person-icon {
       position: relative; top: 473px; left: 6px;
 }
 
 .basket-icon {
-     position: relative; top: 7px; left: 6px;
+     position: relative; top: -49px; left: 6px;
 }
 
 .rocket-icon {
-    position: relative; top: 0px; left: 4px;
+    position: relative; top: -57px; left: 4.5px;
 }
 .calendar-icon {
-    position: relative; top: -8px; left: 2px;
+    position: relative; top: -63px; left: 2px;
 }
+
 
 .nav-list li {
     display: inline;
@@ -271,6 +274,7 @@ section {
 }
 
 
+
 .checkbox input[type="checkbox"]:checked {
     background-color: #3b5e36; /* Change background color when checked */
     border-color: #3b5e36; /* Change border color when checked */
@@ -314,7 +318,44 @@ section {
     background-color: white;
 }
 
+.product {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
 
+.product-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    visibility: hidden; /* Initially hidden */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear; /* Smooth transition */
+}
+
+.product.active .product-description {
+    visibility: visible; /* Show when active */
+    opacity: 1;
+}
+
+.inventory-titles {
+    padding: 0px;
+    border: solid black 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* Distribute items evenly along the main axis */
+    align-items: center; /* Center items along the cross axis */
+}
+
+.header-item {
+    display: flex;
+    flex: 1;
+    border: solid black 1px;
+}
 
 
 
