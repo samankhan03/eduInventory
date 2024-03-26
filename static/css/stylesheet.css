@@ -192,9 +192,9 @@ section {
 }
 
 #inventory-list {
-    background-color: #fff;
-    border-radius: 5px;
-    margin-top: 23px;
+    /*background-color: #fff;*/
+    /*border-radius: 5px;*/
+    /*margin-top: 23px;*/
 }
 .inventory-filter {
     margin-bottom: 10px;
@@ -303,7 +303,7 @@ section {
     padding-top: 13px; /* this gives space between the border and items*/
 }
 .header-item-name {
-    margin-left: -47px; /* Adjust the negative margin as needed to move the header to the left */
+    /*margin-left: -47px; /* Adjust the negative margin as needed to move the header to the left */
 }
 .add-button {
     position: relative; right: 40px;
@@ -326,10 +326,8 @@ section {
 
 .product-description {
     position: absolute;
-    left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
-    padding: 10px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     visibility: hidden; /* Initially hidden */
@@ -354,7 +352,20 @@ section {
 .header-item {
     display: flex;
     flex: 1;
+    height: 1000px;
     border: solid black 1px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.small-column {
+    flex: 0 0 auto; /* Prevents this column from growing or shrinking */
+    width: 25px; /* Adjust width as needed */
+    height: 1000px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 }
 
 
