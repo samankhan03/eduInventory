@@ -62,23 +62,23 @@ body {
 
 }
 
-.inv-icon {
-    position: relative; top: 7px; left: 13px;
-}
-.person-icon {
-      position: relative; top: 473px; left: 6px;
-}
+/*.inv-icon {*/
+/*    position: relative; top: 7px; left: 13px;*/
+/*}*/
+/*.person-icon {*/
+/*      position: relative; top: 473px; left: 6px;*/
+/*}*/
 
-.basket-icon {
-     position: relative; top: -49px; left: 6px;
-}
+/*.basket-icon {*/
+/*     position: relative; top: -49px; left: 6px;*/
+/*}*/
 
-.rocket-icon {
-    position: relative; top: -57px; left: 4.5px;
-}
-.calendar-icon {
-    position: relative; top: -63px; left: 2px;
-}
+/*.rocket-icon {*/
+/*    position: relative; top: -57px; left: 4.5px;*/
+/*}*/
+/*.calendar-icon {*/
+/*    position: relative; top: -63px; left: 2px;*/
+/*}*/
 
 
 .nav-list li {
@@ -368,6 +368,16 @@ section {
     align-items: center;
 }
 
+.sidenav-list{
+    display: flex;
+    flex-direction: column;
+    border: solid black 1px;
+    align-items: center;
+}
+
+li {
+    border: solid black 1px;
+}
 
 
 
