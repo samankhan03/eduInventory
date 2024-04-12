@@ -352,7 +352,7 @@ section {
 .header-item {
     display: flex;
     flex: 1;
-    height: 1000px;
+    height: 2000px;
     border: solid black 1px;
     flex-direction: column;
     align-items: center;
@@ -361,7 +361,6 @@ section {
 .small-column {
     flex: 0 0 auto; /* Prevents this column from growing or shrinking */
     width: 25px; /* Adjust width as needed */
-    height: 1000px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
