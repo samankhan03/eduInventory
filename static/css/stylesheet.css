@@ -302,9 +302,7 @@ section {
 .item-info {
     padding-top: 13px; /* this gives space between the border and items*/
 }
-.header-item-name {
-    /*margin-left: -47px; /* Adjust the negative margin as needed to move the header to the left */
-}
+
 .add-button {
     position: relative; right: 40px;
     color: #9796a8;
@@ -353,7 +351,7 @@ section {
     display: flex;
     flex: 1;
     height: 2000px;
-    border: solid black 1px;
+    border-bottom: grey 1px;
     flex-direction: column;
     align-items: center;
 }
@@ -375,7 +373,7 @@ section {
 }
 
 .header-hash{
-    border: solid blue 1px;
+    /*border: solid blue 1px;*/
     width: 100%;
     display:flex;
     flex-direction: row;
@@ -385,14 +383,14 @@ section {
 
 .hash {
     width: 10%;
-    border: solid green 1px;
+    /*border: solid green 1px;*/
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .item-name {
     width: 90%;
-    border: solid red 1px;
+    /*border: solid red 1px;*/
     padding-left: 100px;
 }
 
