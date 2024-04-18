@@ -12,7 +12,7 @@ class User(models.Model):
 class InventoryItem(models.Model):
     name = models.CharField(max_length=100)
     device_type = models.CharField(max_length=100, default='')
-    status = models.CharField(max_length=100, default='')
+    status = models.CharField(max_length=100, default='Available')
 
     class Meta:
         db_table = 'inventory_item'

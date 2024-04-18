@@ -6,6 +6,9 @@ from inventory.models import InventoryItem
 def inventory_user(request):
     # Retrieve all InventoryItem objects from the database
     inventory_items = InventoryItem.objects.all()
+    for inventory_item in inventory_items:
+        if inventory_item.status == "nan":
+            inventory_item.status = "Available"
     # Pass the inventory items to the template context
     return render(request, 'inventory_user.html', {'inventory_items': inventory_items})
 
