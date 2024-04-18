@@ -62,24 +62,6 @@ body {
 
 }
 
-/*.inv-icon {*/
-/*    position: relative; top: 7px; left: 13px;*/
-/*}*/
-/*.person-icon {*/
-/*      position: relative; top: 473px; left: 6px;*/
-/*}*/
-
-/*.basket-icon {*/
-/*     position: relative; top: -49px; left: 6px;*/
-/*}*/
-
-/*.rocket-icon {*/
-/*    position: relative; top: -57px; left: 4.5px;*/
-/*}*/
-/*.calendar-icon {*/
-/*    position: relative; top: -63px; left: 2px;*/
-/*}*/
-
 
 .nav-list li {
     display: inline;
@@ -394,5 +376,32 @@ section {
     padding-left: 100px;
 }
 
+/* Add table styles here */
+#inventory-list table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#inventory-list th, #inventory-list td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+
+#inventory-list tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Optional: Style alternating rows */
+#inventory-list tr:nth-child(even) {
+    background-color: #fff;
+}
+
+/* Optional: Add hover effect to rows */
+#inventory-list tr:hover {
+    background-color: #f2f2f2;
+}
 
 
