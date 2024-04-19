@@ -26,6 +26,12 @@ class Command(BaseCommand):
             name = row['Device Name']
             device_type = row['Device Type']
             status = row['Status']
+            print(f'{status}   {type(status)}  ==  {str(status)} ')
+            if str(status) == "nan" or status == "available" or status == "Available":
+                status = "Available"
+            else:
+                status = "Unavailable"
+
             # Create InventoryItem objects and save them to the database
             InventoryItem.objects.create(name=name, device_type=device_type, status=status)
 

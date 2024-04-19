@@ -57,6 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'eduStore.urls'
+STATIC_URL = '/static/'
 
 TEMPLATES = [
     {

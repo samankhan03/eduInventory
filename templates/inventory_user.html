@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,8 @@
     <title>InvHtml</title>
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
     <link rel="stylesheet" href="../static/css/stylesheet.css">
-
-
+    <script src="{% static 'script/inventory_script.js' %}"></script>
+    
 </head>
 <body>
     <nav class="sidenav">
@@ -72,18 +73,20 @@
 </div>
 
     <section id="inventory-list">
-         <div class="inventory-filter">
-             <div class="custom-dropdown">
-                <select id="stock-filter">
-                    <option value="all">All </option>
-                    <option value="in-stock"> Available </option>
-                    <option value="out-of-stock"> Unavailable </option>
-                </select>
-                <span class="arrow">▼</span>
-             </div>
-        </div>
-        <!-- Render the HTML table containing Excel data -->
-{#        {{ excel_html | safe }}#}
+        <form id="filter-form" method="GET">
+            {% csrf_token %}
+            <div class="inventory-filter">
+                <div class="custom-dropdown">
+                    <select id="stock-filter" name="availability" onchange="filterInventory()">
+                        <option value="all">All</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                    <span class="arrow">▼</span>
+                </div>
+            </div>
+        </form>
+        <!-- Render the HTML table containing database data-->
         <table>
             <thead>
                 <tr>
@@ -94,7 +97,7 @@
             </thead>
             <tbody>
                 {% for item in inventory_items %}
-                <tr>
+                <tr class="inventory-item" data-status="{{ item.status }}">
                     <td>{{ item.name }}</td>
                     <td>{{ item.device_type }}</td>
                     <td>{{ item.status }}</td>

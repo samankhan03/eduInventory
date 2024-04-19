@@ -144,6 +144,7 @@ section {
     position: relative;
     flex-grow: 1; /* Allow the search bar to take up remaining space */
     margin-left: 20px; /* Add spacing between the dropdown and search bar */
+
 }
 
 .search-bar form {
@@ -164,13 +165,14 @@ section {
     cursor: pointer;
     color: #fff; /* Text color */
 }
-.search-icon img {
-    /* comment */
-   object-fit: scale-down;
+
+.search-icon img{
+    object-fit: contain;
     height: 20px;
     width: 20px;
-    position: relative;right: 187px; top: 2px;
-
+    position: relative;
+    left: -213px;
+    top:4px;
 }
 
 #inventory-list {
@@ -321,7 +323,6 @@ section {
 }
 
 .inventory-titles {
-    padding: 0px;
     border: solid black 1px;
     display: flex;
     flex-direction: row;
