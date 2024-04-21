@@ -142,6 +142,7 @@ body {
 }
 
 .cards {
+    position: relative;
     width: 90%;
     height: 60px;
     margin-bottom: 10px;
@@ -149,13 +150,17 @@ body {
     border-radius: 5px;
     padding: 10px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .card-content {
     display: flex;
     color: white;
+    justify-content: left;
     font-family: monospace;
     margin-top: 14px;
+    position: relative;
+
 
 
 }
@@ -166,6 +171,46 @@ body {
     margin-right: 33px; /* Add spacing between icon and item name */
     border-radius: 50px; /* Make the border round */
     padding: 5px;
+}
+.mini-page {
+    visibility: hidden;
+    opacity: 0;
+    /* Other styles */
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
+}
+
+
+/*.show-info-button {*/
+/*    width: 10%;*/
+/*    height: 10px;*/
+/*    font-size: 20px;*/
+/*    background-color: #c9c8cf;*/
+/*    color: #6A6677;*/
+/*    border: none;*/
+/*    border-radius: 30%;*/
+/*    cursor: pointer;*/
+/*    padding: 5px;*/
+/*    box-sizing: border-box;*/
+/*    z-index: 999;*/
+/*}*/
+
+.cards:hover {
+    /*border: solid #89d770 3px ;*/
+    border: solid white 3px;
+}
+.mini-page.visible {
+    visibility: visible;
+    opacity: 1;
 }
 
 

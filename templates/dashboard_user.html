@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <title>DashboardHtml</title>
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
     <link rel="stylesheet" href="../static/css/dashboard.css">
+    
 </head>
 <body>
     <nav class="sidenav">
@@ -52,23 +54,33 @@
     <div class="third-block">
             <div class="cr-block"> 
                  <div class="title "> Current Reservations </div>
-                <div class="cards">
+                <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="../static/images/laptop.png" alt="laptop-icon" height="60" width="60">
                         item name 
                     </div>
+                        <div class="mini-page">
+                            Due Date:
+                        </div>
                 </div>
-                <div class="cards">
+                <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="../static/images/laptop.png" alt="laptop-icon" height="60" width="60">
                         item name
                     </div>
+                        <div class="mini-page">
+                            Due Date:
+                        </div>
+                    
                 </div>
-                <div class="cards">
+                <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="../static/images/laptop.png" alt="laptop-icon" height="60" width="60">
                         item name
                     </div>
+                         <div class="mini-page">
+                            Due Date:
+                        </div>
                 </div>
             </div>
             <div class="ib-block"> 
@@ -92,20 +104,66 @@
                     </div>
                 </div>
             </div>
-            <div class="hb-block"> 
+            <div class="hb-block" > 
                 <div class="title"> Historical Bookings </div>
-                <div class="cards"></div>
-                <div class="cards"></div>
-                <div class="cards"></div>
-                <div class="cards"></div>
-                <div class="cards"></div>
-                <div class="cards"></div>
+                <div class="cards" id = myCard>
+                     <div class="card-content">
+                        <img src="../static/images/headset.png" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                    <div class="mini-page">
+                            Booked:
+                    </div>
+                </div>
+                <div class="cards" id = myCard>
+                     <div class="card-content">
+                        <img src="../static/images/headset.png" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked:
+                     </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/headset.png" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked:
+                     </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/headset.png" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked:
+                     </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/headset.png" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked:
+                    </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/headset.png" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked:
+                     </div>
+                </div>
             </div>
             
         
     </div>
-
-
-
+<script src="{% static 'script/dashboard_script.js' %}"></script>
 </body>
 </html>
