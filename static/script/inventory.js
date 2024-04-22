@@ -7,8 +7,6 @@ function filterInventory() {
         let availability = item.dataset.availability;
         let type = item.dataset.itemtype;
         let availabilityString = availability === 'True' ? 'Available' : 'Unavailable';
-        console.log("["+type +  "]  [" + selectedType + "]");
-
         let showItem = (selectedAvailability === 'all' || selectedAvailability === availabilityString) &&
                        (selectedType === 'all' || selectedType === type);
 
