@@ -2,14 +2,17 @@ from django.contrib import admin
 from .models import User, InventoryItem, BorrowedItem
 
 
+
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    pass  # You can customize the admin interface for User if needed
+    pass
 
 
 @admin.register(InventoryItem)
 class InventoryItemAdmin(admin.ModelAdmin):
-    pass  # You can customize the admin interface for InventoryItem if needed
+    list_display = ('name', 'item_type', 'status', 'quantity', 'availability')
+    list_filter = ('item_type', 'status', 'availability')
+    search_fields = ('name', 'item_type', 'comments')
 
 
 @admin.register(BorrowedItem)
