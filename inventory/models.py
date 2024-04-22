@@ -1,3 +1,33 @@
 from django.db import models
 
-# Create your models here.
+
+class User(models.Model):
+    username = models.CharField(max_length=100)
+    email = models.EmailField()
+
+    class Meta:
+        db_table = 'user'
+
+
+class InventoryItem(models.Model):
+    name = models.CharField(max_length=100)
+    item_type = models.CharField(max_length=100, default='')
+    status = models.CharField(max_length=100, default='Available')
+    quantity = models.IntegerField(default=0)
+    audit_date = models.DateField(default=None)
+    location = models.CharField(max_length=100, default='')
+    availability = models.BooleanField(default=False)
+    comments = models.CharField(max_length=200, default='')
+    onsite_only = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = 'inventory_item'
+
+
+class BorrowedItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    item = models.ForeignKey(InventoryItem, on_delete=models.CASCADE)
+    borrow_date = models.DateField()
+
+    class Meta:
+        db_table = 'borrowed_item'
