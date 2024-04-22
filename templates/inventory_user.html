@@ -6,7 +6,7 @@
     <title>InvHtml</title>
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
     <link rel="stylesheet" href="../static/css/stylesheet.css">
-    
+
 
 </head>
 <body>
@@ -102,7 +102,7 @@
                 <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
                     <td>{{ item.name }}</td> 
                     <td>{{ item.item_type }}</td>
-                    
+
                     {% if item.availability == True %}
                         <td>Available</td>
                     {% else %}
@@ -118,6 +118,6 @@
 
     </section>
 </section>
-    <script src="{% static 'script/inventory_script.js' %}"></script>
+    <script src="{% static 'script/inventory.js' %}"></script>
 </body>
 </html>
