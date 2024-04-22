@@ -1,23 +1,30 @@
-document.getElementById('stock-filter').addEventListener('click', function() {
-    var arrow = document.querySelector('.custom-dropdown .arrow');
-    arrow.style.display = arrow.style.display === 'none' ? 'inline' : 'none';
+document.getElementById('stock-filter').addEventListener('change', function() {
+    filterInventory(); // Call the filterInventory function when the selection changes
 });
 
-function toggleDescription(product) {
-    product.classList.toggle('active');
-    console.log("active")}
-
-
 function filterInventory() {
-    let selectedValue = document.getElementById("stock-filter").value;
-    let inventoryItems = document.querySelectorAll(".inventory-item");
+    let selectedAvailability = document.getElementById("stock-filter").value;
+    let selectedType = document.getElementById("type-filter").value;
 
+    let inventoryItems = document.querySelectorAll(".inventory-item");
+    console.log(selectedAvailability);
     inventoryItems.forEach(function(item) {
-        let status = item.dataset.status;
-        if (selectedValue === 'all' || selectedValue === status) {
+        let availability = item.dataset.availability;
+        let type = item.dataset.itemtype;
+        let availabilityString = availability === 'True' ? 'Available' : 'Unavailable';
+
+        let showItem = (selectedAvailability === 'all' || selectedAvailability === availabilityString) &&
+                       (selectedType === 'all' || " " + selectedType === type);
+
+        if (showItem) {
             item.style.display = 'table-row';
         } else {
             item.style.display = 'none';
         }
     });
+
 }
+
+
+
+

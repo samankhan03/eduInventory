@@ -18,21 +18,28 @@ class Command(BaseCommand):
         excel_file_path = os.path.join('media', 'equipment.xlsx')  # Path to your Excel file
         excel_data = pd.read_excel(excel_file_path)
 
-        # Select only the "Device Name", "Device Type" and "Status" columns
-        excel_data = excel_data[['Device Name', 'Device Type', 'Status']]
 
-        # Iterate over rows in the DataFrame and create InventoryItem objects
+
+        # Data cleaning
         for index, row in excel_data.iterrows():
             name = row['Device Name']
-            device_type = row['Device Type']
+            item_type = row['Device Type']
+            quantity = row['Quantity']
+            audit_date = row['Audit']
+            location = row['Location']
             status = row['Status']
-            print(f'{status}   {type(status)}  ==  {str(status)} ')
-            if str(status) == "nan" or status == "available" or status == "Available":
-                status = "Available"
-            else:
-                status = "Unavailable"
+            comments = row['Comments']
+            availability = True if str(status) == "nan" or status.lower() == "available" else False
 
             # Create InventoryItem objects and save them to the database
-            InventoryItem.objects.create(name=name, device_type=device_type, status=status)
+            InventoryItem.objects.create(
+                name=name,
+                item_type=item_type,
+                status=status,
+                quantity=quantity,
+                availability=availability,
+                location=location,
+                audit_date=audit_date,
+                comments=comments)
 
         self.stdout.write(self.style.SUCCESS('Inventory items populated successfully'))

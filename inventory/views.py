@@ -6,10 +6,7 @@ from inventory.models import InventoryItem
 def inventory_user(request):
     # Retrieve all InventoryItem objects from the database
     inventory_items = InventoryItem.objects.all()
-    availability = request.GET.get('availability', 'All')  # Get the selected availability from the form
-    # Data cleaning
-    if availability != 'All':
-        inventory_items = inventory_items.filter(status=availability)
+
     # Pass the inventory items to the template context
     return render(request, 'inventory_user.html', {'inventory_items': inventory_items})
 

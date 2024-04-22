@@ -126,19 +126,8 @@ section {
     align-items: center;
     margin-left: 20px;
 }
-.custom-dropdown-two {
-    position: relative;
-    margin-left: 10px;
-}
 
-.custom-dropdown-two select {
-    padding: 5px 20px;
-    border-radius: 10px;
-    border: 1px solid #dadada;
-    appearance: none;
-    cursor: pointer;
-    box-shadow: none;
-}
+
 
 .search-bar {
     position: relative;

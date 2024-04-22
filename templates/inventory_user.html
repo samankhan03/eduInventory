@@ -6,8 +6,8 @@
     <title>InvHtml</title>
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
     <link rel="stylesheet" href="../static/css/stylesheet.css">
-    
-    
+
+
 </head>
 <body>
     <nav class="sidenav">
@@ -16,17 +16,17 @@
             <div class="inv-icon"> 
                 <li> <img src="../static/images/invlogo.png" alt="inventory-icon" width="37" height="37"> </li>
             </div>
-           
+
             <div class="basket-icon"> 
                 <li> <img src="../static/images/basket.png" alt="basket-icon" width="53" height="53"> </li>
             </div>
-             <div class="rocket-icon"> 
+             <div class="rocket-icon">
                 <li> <img src="../static/images/rocket.png" alt="rocket-icon" width="53" height="53"> </li>
             </div>
-             <div class="calendar-icon"> 
+             <div class="calendar-icon">
                 <li> <img src="../static/images/calendar.png" alt="calendar-icon" width="55" height="55"> </li>
             </div>
-              <div class="person-icon"> 
+              <div class="person-icon">
                 <li> <img src="../static/images/person.png" alt="person-icon" width="53" height="53"> </li>
             </div>
         </ul>
@@ -36,19 +36,23 @@
     <section id="filter-list">
     <div class="inventory-header">
         <h2> Inventory </h2>
-    <div class="custom-dropdown-one">
-        <select id="sort-filter">
-            <option value="name">Category: All </option>
-            <option value="date">Category: Laptop</option>
-            <option value="Mobile Device">Category: Mobile Device</option>
-            <option value="Headset"> Category: Audio Device</option>
-            <option value="Furniture"> Category: Furniture</option>
-        </select>
-
-    </div>
-
+            <div class="custom-dropdown-one">
+                <select id="type-filter" name="item-type" onchange="filterInventory()">
+                    <option value="all">All</option>
+                    <option value="PC/Laptop">PC/Laptop</option>
+                    <option value="VR Headset">VR Headset</option>
+                    <option value="Camera/Sensors">Camera/Sensors</option>
+                    <option value="PC Peripherals">PC Peripherals</option>
+                    <option value="Phone/Tablet">Phone/Tablet</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Tripod">Tripod</option>
+                    <option value="Other">Other</option>
+                    <option value="VR Controller">VR Controller</option>
+                    <option value="Power/Cable">Power/Cable</option>
+                </select>
+            </div>
         <div class="custom-dropdown-two">
-        <select id="brand-filter">
+        <select id="date-filter">
             <option value="name">Return Date: </option>
             <option value="today">Today</option>
             <option value="tomorrow">Tomorrow</option>
@@ -66,15 +70,13 @@
         </div>
         
         <div class="add-button">
-            + Add to cart
+            Go to Basket
         </div>
 
 
 </div>
 
     <section id="inventory-list">
-        <form id="filter-form" method="GET">
-            {% csrf_token %}
             <div class="inventory-filter">
                 <div class="custom-dropdown">
                     <select id="stock-filter" name="availability" onchange="filterInventory()">
@@ -85,7 +87,6 @@
                     <span class="arrow">▼</span>
                 </div>
             </div>
-        </form>
         <!-- Render the HTML table containing database data-->
         <table>
             <thead>
@@ -93,14 +94,21 @@
                     <th>Item Name</th>
                     <th>Type</th>
                     <th>Availability</th>
+                    <th>Quantity</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in inventory_items %}
-                <tr class="inventory-item" data-status="{{ item.status }}">
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.device_type }}</td>
-                    <td>{{ item.status }}</td>
+                <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
+                    <td>{{ item.name }}</td> 
+                    <td>{{ item.item_type }}</td>
+                    
+                    {% if item.availability == True %}
+                        <td>Available</td>
+                    {% else %}
+                         <td>Unavailable</td>
+                    {% endif %}
+                    <td>{{ item.quantity }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -112,7 +120,4 @@
 </section>
 <script src="{% static 'script/inventory_script.js' %}"></script>
 </body>
-
-
-
 </html>
