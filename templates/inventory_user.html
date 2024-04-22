@@ -13,23 +13,17 @@
     <nav class="sidenav">
         <ul class="sidenav-list">
             <li> <img src="../static/images/purplelogo.png" alt="purple-logo" width="63" height="63" ></li>
-            <div class="inv-icon"> 
-                <li> <img src="../static/images/invlogo.png" alt="inventory-icon" width="37" height="37"> </li>
-            </div>
-
             <div class="basket-icon"> 
-                <li> <img src="../static/images/basket.png" alt="basket-icon" width="53" height="53"> </li>
+                <li><a href="{% url 'inventory-user' %}"> <img src="../static/images/basket.png" alt="basket-icon" width="53" height="53"></a> </li>
             </div>
              <div class="rocket-icon">
-                <li> <img src="../static/images/rocket.png" alt="rocket-icon" width="53" height="53"> </li>
+                 <li><a href="{% url 'dashboard-user' %}"> <img src="../static/images/rocket.png" alt="rocket-icon" width="53" height="53"></a> </li>
             </div>
-             <div class="calendar-icon">
-                <li> <img src="../static/images/calendar.png" alt="calendar-icon" width="55" height="55"> </li>
-            </div>
-              <div class="person-icon">
-                <li> <img src="../static/images/person.png" alt="person-icon" width="53" height="53"> </li>
+             <div class="logout-icon">
+                <li> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </li>
             </div>
         </ul>
+              
     </nav>
 
 <section id="inv">

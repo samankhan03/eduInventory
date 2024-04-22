@@ -12,74 +12,21 @@ body {
     margin-left: 80px;
     margin-top: 23px;
 }
-.sidenav {
+.sidenav{
     background-color: white; /* Background color of the sidebar */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
     height: 100vh; /* Make sidebar full height */
-    width: 50px; /* Adjust width as needed */
+    width: 57px; /* Adjust width as needed */
     position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     top: 0;
     left: 0;
     z-index: 1;
 }
 
-.sidenav-list{
-    position: relative;
-    right: 7px;
-    padding:0;
-    margin-top: 13px;
-}
 
-
-
-
-.navbar {
-    color: white;
-    background: white;
-    height: 21px;
-    border-bottom: 1px solid #dadada;
-    margin: 0;
-}
-.nav-text{
-    color: #dadada;
-}
-.nav-list {
-    padding: 0;
-    margin: 13px;
-    text-align: right;
-    font-size: small;
-    color: #949494 ;
-
-}
-.bell-icon {
-    position: relative; bottom: 49px; right: 135px;
-    margin: 21px;
-    color: #949494 ;
-
-}
-.settings2-icon {
-    position: relative; bottom: 133px; right: 57px;
-
-}
-
-
-.nav-list li {
-    display: inline;
-    margin-right: 23px; /* Adjust margin between list items */
-}
-
-.nav-list li:last-child {
-    margin-right: 0; /* Remove margin from the last list item */
-}
-
-.nav-list li a {
-    text-decoration: none;
-    color: #333; /* Text color of navbar links */
-}
-
-.nav-list li a:hover {
-    color: #555; /* Text color of navbar links on hover */
-}
 section {
     margin-bottom: 20px;
     margin-top: 20px;
@@ -164,11 +111,7 @@ section {
     top:4px;
 }
 
-#inventory-list {
-    /*background-color: #fff;*/
-    /*border-radius: 5px;*/
-    /*margin-top: 23px;*/
-}
+
 .inventory-filter {
     margin-bottom: 10px;
 }
@@ -338,11 +281,14 @@ section {
 }
 
 .sidenav-list{
+    position: relative;
+    padding:0;
+    margin-top: 13px;
     display: flex;
     flex-direction: column;
-    border: solid black 1px;
     align-items: center;
 }
+
 
 .header-hash{
     /*border: solid blue 1px;*/
@@ -392,6 +338,31 @@ section {
 /* Optional: Add hover effect to rows */
 #inventory-list tr:hover {
     background-color: #f2f2f2;
+}
+.inv-icon, .basket-icon, .rocket-icon, .calendar-icon {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.inv-icon{
+    width: 50px;
+}
+.sidenav-list li:hover {
+    box-shadow: 2px 0px 0px #6A6677/* Adjust the shadow size and color as needed */
+}
+
+.inv-icon img {
+    width: 100%;
+    object-fit: fill;
+}
+.logout-icon {
+    margin-top: auto;
 }
 
 
