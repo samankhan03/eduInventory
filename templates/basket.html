@@ -11,16 +11,16 @@
 <div class="basket-header">
          YOUR BASKET
 </div>
-<div class="logo">
-        <img src="{% static 'images/purplelogo.png' %}" alt="Menu Icon" width="63" height="63">
-        
+<div class="logo"> <a href="{% url 'dashboard-user' %}">
+    <img src="{% static 'images/purplelogo.png' %}" alt="Menu Icon" width="63" height="63"> </a>
+
 </div>
  <div class="basket-icon"> <a href="{% url 'basket' %}">
          <img src="{% static 'images/basket.png' %}" alt="Basket Icon" width="50" height="50"></a>
-         <div class="basket-text">BASKET (3) </div>
+     <div class="basket-text"> <a href="{% url 'basket' %}">BASKET (3) </a></div>
  </div>
 
-<section id = "basket-items"> 
+<section id = "basket-items">
         <table>
             <thead>
                 <tr>
@@ -28,25 +28,31 @@
                         <th>Item Name</th>
                         <th>Type</th>
                         <th>Quantity</th>
+                        <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in inventory_items %}
                 <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
-                    <td>{{ item.name }}</td> 
+                    <td> </td>
+                    <td>{{ item.name }}</td>
                     <td>{{ item.item_type }}</td>
-                    
-                    {% if item.availability == True %}
-                        <td>Available</td>
-                    {% else %}
-                         <td>Unavailable</td>
-                    {% endif %}
+
                     <td>{{ item.quantity }}</td>
+                    <td><button class = "remove">Remove</button></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
 
+
+
 </section>
+<div class="action-buttons">
+    <div class="go-back"><a href="{% url 'inventory-user' %}"> GO BACK </a></div>
+    <div class="reserve"> RESERVE </div>
+
+</div>
+<script src="{% static 'script/inventory.js' %}"></script>
 </body>
 </html>

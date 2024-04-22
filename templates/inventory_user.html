@@ -12,12 +12,9 @@
 <body>
     <nav class="sidenav">
         <ul class="sidenav-list">
-            <li> <img src="../static/images/purplelogo.png" alt="purple-logo" width="63" height="63" ></li>
+            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"> <img src="../static/images/purplelogo.png" alt="purple-logo" width="63" height="63" > </a> </div></li>
             <div class="basket-icon"> 
                 <li><a href="{% url 'inventory-user' %}"> <img src="{% static 'images/basket.png' %}" alt="basket-icon" width="53" height="53"></a> </li>
-            </div>
-             <div class="rocket-icon">
-                 <li><a href="{% url 'dashboard-user' %}"> <img src="{% static 'images/rocket.png' %}" alt="rocket-icon" width="53" height="53"></a> </li>
             </div>
              <div class="logout-icon">
                 <li> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </li>
@@ -63,8 +60,9 @@
             </form>
         </div>
         
-        <div class="add-button">
-            Go to Basket
+        <div class="add-button"> <a href="{% url 'basket' %}">
+            Go to Basket 
+        </a>
         </div>
 
 

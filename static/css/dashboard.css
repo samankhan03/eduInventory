@@ -260,5 +260,8 @@ body {
     object-fit: fill;
 }
 
-
+.add-button a {
+    text-decoration: none;
+    color: white;
+}
 

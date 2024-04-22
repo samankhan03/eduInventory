@@ -401,5 +401,8 @@ section {
 .table-titles {
     color: #949494;
 }
-
+.add-button a {
+    text-decoration: none;
+    color: #949494;
+}
 
