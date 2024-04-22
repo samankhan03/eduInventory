@@ -67,6 +67,28 @@ section {
     color: #808080; /* Grey color */
 }
 
+.custom-dropdown-two {
+    position: relative;
+    margin-left: 57px;
+}
+
+.custom-dropdown-two select {
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.custom-dropdown-two .arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #808080; /* Grey color */
+}
 .brand-header {
     display: flex;
     margin-top: 0;
@@ -79,7 +101,7 @@ section {
 .search-bar {
     position: relative;
     flex-grow: 1; /* Allow the search bar to take up remaining space */
-    margin-left: 20px; /* Add spacing between the dropdown and search bar */
+    margin-left: 60px; /* Add spacing between the dropdown and search bar */
 
 }
 
@@ -107,7 +129,7 @@ section {
     height: 20px;
     width: 20px;
     position: relative;
-    left: -213px;
+    left: -185px;
     top:4px;
 }
 
@@ -317,13 +339,25 @@ section {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
+    font-size: 13px;
 }
 
-#inventory-list th, #inventory-list td {
+#inventory-list th {
+    font-family: Arial, SansSerif;
+    color: #949494;
     padding: 8px;
     border-bottom: 1px solid #ddd;
     text-align: left;
+    font-weight: normal;
+
 }
+#inventory-list td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+
+}
+
 
 
 #inventory-list tr:hover {
@@ -363,6 +397,9 @@ section {
 }
 .logout-icon {
     margin-top: auto;
+}
+.table-titles {
+    color: #949494;
 }
 
 

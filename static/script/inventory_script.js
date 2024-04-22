@@ -1,3 +1,4 @@
+
 document.getElementById('stock-filter').addEventListener('change', function() {
     filterInventory(); // Call the filterInventory function when the selection changes
 });
