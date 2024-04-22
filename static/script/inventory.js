@@ -17,3 +17,28 @@ function filterInventory() {
         }
     });
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const searchForm = document.querySelector(".search-bar form");
+    const searchInput = document.querySelector(".search-bar input[type='text']");
+
+    searchForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const query = searchInput.value.toLowerCase().trim();
+        filterBySearch(query);
+    });
+
+    function filterBySearch(query) {
+        const inventoryItems = document.querySelectorAll(".inventory-item");
+
+        inventoryItems.forEach(function(item) {
+            const itemName = item.querySelector("td:first-child").textContent.toLowerCase();
+            if (itemName.includes(query)) {
+                item.style.display = "table-row";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
+});

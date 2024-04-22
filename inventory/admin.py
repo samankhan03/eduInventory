@@ -17,4 +17,4 @@ class InventoryItemAdmin(admin.ModelAdmin):
 
 @admin.register(BorrowedItem)
 class BorrowedItemAdmin(admin.ModelAdmin):
-    pass  # You can customize the admin interface for BorrowedItem if needed
+    pass

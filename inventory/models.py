@@ -14,11 +14,12 @@ class InventoryItem(models.Model):
     item_type = models.CharField(max_length=100, default='')
     status = models.CharField(max_length=100, default='Available')
     quantity = models.IntegerField(default=0)
-    audit_date = models.DateField(default=None)
+    audit_date = models.DateField(default=None, null=True, blank=True)
     location = models.CharField(max_length=100, default='')
     availability = models.BooleanField(default=False)
     comments = models.CharField(max_length=200, default='')
     onsite_only = models.BooleanField(default=False)
+    return_date = models.DateField(default=None, null=True, blank=True)
 
     class Meta:
         db_table = 'inventory_item'
