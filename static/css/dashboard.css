@@ -251,7 +251,7 @@ body {
     width: 50px;
 }
 .sidenav-list li:hover {
-    box-shadow: 33px 0px 0px #6A6677/* Adjust the shadow size and color as needed */
+    box-shadow: 33px 0px 0px #6A6677;
 }
 
 

@@ -16,5 +16,7 @@ def inventory_admin(request):
 
 def dashboard_user(request):
     return render(request, 'dashboard_user.html')
+def basket(request):
+    return render(request, 'basket.html')
 def admin(request):
     return HttpResponse('<p>hello </p>')

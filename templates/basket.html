@@ -1,12 +1,52 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
     <title>BasketHtml</title>
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" href="../static/css/basket.css">
+     <link rel="stylesheet" href="{% static 'css/basket.css'%}">
 </head>
 <body>
+<div class="basket-header">
+         YOUR BASKET
+</div>
+<div class="logo">
+        <img src="{% static 'images/purplelogo.png' %}" alt="Menu Icon" width="63" height="63">
+        
+</div>
+ <div class="basket-icon"> <a href="{% url 'basket' %}">
+         <img src="{% static 'images/basket.png' %}" alt="Basket Icon" width="50" height="50"></a>
+         <div class="basket-text">BASKET (3) </div>
+ </div>
 
+<section id = "basket-items"> 
+        <table>
+            <thead>
+                <tr>
+                        <th>Product</th>
+                        <th>Item Name</th>
+                        <th>Type</th>
+                        <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in inventory_items %}
+                <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
+                    <td>{{ item.name }}</td> 
+                    <td>{{ item.item_type }}</td>
+                    
+                    {% if item.availability == True %}
+                        <td>Available</td>
+                    {% else %}
+                         <td>Unavailable</td>
+                    {% endif %}
+                    <td>{{ item.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+</section>
 </body>
 </html>
