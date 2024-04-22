@@ -5,5 +5,6 @@ from . import views
 urlpatterns = [
     path("", views.inventory_user, name="inventory-user"),
     path("admin", views.inventory_admin, name="inventory-admin"),
-
+    path("user/", views.dashboard_user, name="dashboard-user"),
+    path("user", views.dashboard_user, name="basket"),
 ]
