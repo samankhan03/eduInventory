@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>InvHtml</title>
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
 
 
 </head>
@@ -14,10 +14,10 @@
         <ul class="sidenav-list">
             <li> <img src="../static/images/purplelogo.png" alt="purple-logo" width="63" height="63" ></li>
             <div class="basket-icon"> 
-                <li><a href="{% url 'inventory-user' %}"> <img src="../static/images/basket.png" alt="basket-icon" width="53" height="53"></a> </li>
+                <li><a href="{% url 'inventory-user' %}"> <img src="{% static 'images/basket.png' %}" alt="basket-icon" width="53" height="53"></a> </li>
             </div>
              <div class="rocket-icon">
-                 <li><a href="{% url 'dashboard-user' %}"> <img src="../static/images/rocket.png" alt="rocket-icon" width="53" height="53"></a> </li>
+                 <li><a href="{% url 'dashboard-user' %}"> <img src="{% static 'images/rocket.png' %}" alt="rocket-icon" width="53" height="53"></a> </li>
             </div>
              <div class="logout-icon">
                 <li> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </li>
@@ -55,7 +55,7 @@
     </div>
         <div class="search-bar">
             <form action="/search" method="get">
-                <input type="text" name="q" placeholder="Quick Search">
+                <input type="text" name="searchbar" placeholder="Quick Search">
                 <div class="search-icon">
                     <img src="../static/images/search-icon.png" alt="search icon">
                 </div>
@@ -96,13 +96,14 @@
                 <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
                     <td>{{ item.name }}</td> 
                     <td>{{ item.item_type }}</td>
-                    
+
                     {% if item.availability == True %}
                         <td>Available</td>
                     {% else %}
                          <td>Unavailable</td>
                     {% endif %}
                     <td>{{ item.quantity }}</td>
+                <td><button>Add</button></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -112,6 +113,6 @@
 
     </section>
 </section>
-<script src="{% static 'script/inventory_script.js' %}"></script>
+    <script src="{% static 'script/inventory.js' %}"></script>
 </body>
 </html>

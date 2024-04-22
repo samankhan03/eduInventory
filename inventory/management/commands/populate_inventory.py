@@ -6,7 +6,6 @@ import django
 from django.core.management.base import BaseCommand
 from inventory.models import InventoryItem
 
-# Configure Django settings (replace 'your_project.settings' with the actual path to your settings module)
 settings_module = 'settings.py'
 django.setup()
 
@@ -17,10 +16,6 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         excel_file_path = os.path.join('media', 'equipment.xlsx')  # Path to your Excel file
         excel_data = pd.read_excel(excel_file_path)
-
-
-
-        # Data cleaning
         for index, row in excel_data.iterrows():
             name = row['Device Name']
             item_type = row['Device Type']
@@ -30,7 +25,6 @@ class Command(BaseCommand):
             status = row['Status']
             comments = row['Comments']
             availability = True if str(status) == "nan" or status.lower() == "available" else False
-
             # Create InventoryItem objects and save them to the database
             InventoryItem.objects.create(
                 name=name,
