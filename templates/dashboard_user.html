@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DashboardHtml</title>
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
+    
+</head>
+<body>
+    <nav class="sidenav">
+        <ul class="sidenav-list">
+            <li> <img src="{% static 'images/purplelogo.png'%}" alt="purple-logo" width="63" height="63" ></li>
+            <div class="rocket-icon">
+                <li><a href="{% url 'dashboard-user' %}"> <img src="{% static 'images/rocket.png'%}" alt="rocket-icon" width="50" height="50"> </a> </li>
+            </div>
+            <div class="basket-icon" >
+                <li><a href="{% url 'inventory-user' %}"> <img src="{% static 'images/basket.png'%}" alt="basket-icon" width="50" height="50"></a> </li>
+            </div>
+            
+            <div class="logout-icon">
+                <li> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </li>
+            </div>
+        </ul>
+    </nav>
+    <div class="second-block">
+            <div class="profile-icon">
+                <div class="pfp-icon">
+{#                    <img src="../static/images/miffypfp.png" alt="pfp-icon" height="120" width="120">#}
+{#                      <img src="../static/images/pfpperson.png" alt="pfp-icon" height="80" width="80">#}
+                    <img src="{% static 'images/cat.png'%}" alt="pfp-icon" height="55" width="60">
+{#                    <img src="../static/images/animal2.png" alt="pfp-icon" height="55" width="60">#}
+                </div>
+            </div>
+        
+          <div class="guy">
+                     <img src="{% static 'images/greenman.png'%}" alt="guy-icon" height="300" width="350">
+          </div>
+
+
+    </div>
+    <div class="hi-header">
+        <h2> Hi, Ashley </h2>
+        <div class="welcome"> Welcome to your dashboard! </div>
+    </div>
+
+    <div class="third-block">
+            <div class="cr-block"> 
+                 <div class="title "> Current Reservations </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
+                        item name 
+                    </div>
+                        <div class="mini-page">
+                            Due Date:
+                        </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
+                        item name
+                    </div>
+                        <div class="mini-page">
+                            Due Date:
+                        </div>
+                    
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
+                        item name
+                    </div>
+                         <div class="mini-page">
+                            Due Date:
+                        </div>
+                </div>
+            </div>
+            <div class="ib-block"> 
+                <div class="title"> Inventory Basket </div>
+                <div class="cards">
+                    <div class="card-content">
+                        <img src="{% static 'images/macmini.png'%}" alt="laptop-icon" height="90" width="90">
+                        item name
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-content">
+                        <img src="{% static 'images/macmini.png'%}" alt="laptop-icon" height="90" width="90">
+                        item name
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-content">
+                        <img src="{% static 'images/macmini.png'%}" alt="laptop-icon" height="90" width="90">
+                        item name
+                    </div>
+                </div>
+                 <div class="add-button">
+                     Go to basket
+                 </div>
+                
+            </div>
+            <div class="hb-block" > 
+                <div class="title"> Historical Bookings </div>
+                <div class="cards" id = myCard>
+                     <div class="card-content">
+                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                    <div class="mini-page">
+                            Booked on:
+                    </div>
+                </div>
+                <div class="cards" id = myCard>
+                     <div class="card-content">
+                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked on:
+                     </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked on:
+                     </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked on:
+                     </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked on:
+                    </div>
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
+                        item name
+                    </div>
+                     <div class="mini-page">
+                            Booked on:
+                     </div>
+                </div>
+            </div>
+            
+        
+    </div>
+<script src="{% static 'script/dashboard_script.js' %}"></script>
+</body>
+</html>

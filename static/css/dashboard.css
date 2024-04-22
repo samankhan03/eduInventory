@@ -1,0 +1,264 @@
+body {
+    font-family: Arial, SansSerif;
+    margin-left: 40px;
+    margin-top:3px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.sidenav {
+    background-color: white; /* Background color of the sidebar */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
+    height: 100vh; /* Make sidebar full height */
+    width: 63px; /* Adjust width as needed */
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.sidenav-list{
+    position: relative;
+    right: 7px;
+    padding:0;
+    margin-top: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-block {
+    /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
+    /* background-color: #cdc4d3;*/
+    /* background-color: #c6bbcc;*/
+    background-color: #bdc0d2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
+    height: 100vh; /* Make sidebar full height */
+    width: 250px; /* Adjust width as needed */
+    position: fixed;
+    top: 0;
+    left: 50px;
+    z-index: 1;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.third-block {
+    /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
+    /* background-color: #cdc4d3;*/
+    /* background-color: #c6bbcc;*/
+    background-color: white;
+    height: 100vh; /* Make sidebar full height */
+    /*width: 300px; !* Adjust width as needed *!*/
+    display: flex;
+    flex-direction: row;
+    margin-top: 53px;
+    margin-left: 300px;
+    margin-right: 30px;
+    z-index: 1;
+    padding-top: 50px;
+    justify-content: space-between;
+}
+.hi-header {
+
+    margin-top: 0;
+    margin-left:300px;
+}
+.hi-header h2 {
+    margin-bottom: 20px;
+    margin-top: 33px;
+    font-family: monospace;
+    font-size: 23px;
+
+}
+.welcome {
+    color: #949494;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    font-family: monospace;
+    font-size: 10px;
+
+}
+.profile-icon {
+    diplay:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    background-color: #6A6677; /* You can adjust the color as needed */
+    margin: 0 auto 20px; /* Centers the icon horizontally and adds margin at the bottom */
+    position: relative; /* Position the container */
+    overflow: hidden;
+}
+.pfp-icon {
+    position: absolute; /* Position the image absolutely */
+    top: 50%; /* Align the top of the image to the middle of the container */
+    left: 50%; /* Align the left side of the image to the middle of the container */
+    transform: translate(-50%, -50%); /* Translate the image to the center */
+    border-radius: 50%;
+
+}
+
+.pfp-icon img{
+    object-fit: contain;
+    position: relative;
+    left: -2px;
+    top: 2px;
+
+}
+
+.guy {
+    width: 100%;
+    height: 250px;
+    display: flex;
+
+}
+.guy img{
+    position: relative;
+    bottom:-380px ;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+
+}
+.title {
+    font-family: monospace;
+    font-size: 15px;
+    position: relative;
+    top: -30px;
+}
+
+.logout-icon {
+    margin-top: auto;
+}
+
+.cr-block, .hb-block, .ib-block{
+    height: 100%;
+    width: 30%;
+    background-color: #6A6677;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cards {
+    position: relative;
+    width: 90%;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: #c9c8cf;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.card-content {
+    display: flex;
+    color: white;
+    justify-content: left;
+    font-family: monospace;
+    margin-top: 14px;
+    position: relative;
+
+
+}
+.card-content img {
+    margin-top: -14px;
+    width: 30px; /* Adjust the size of the icon */
+    height: 30px; /* Adjust the size of the icon */
+    margin-right: 33px; /* Add spacing between icon and item name */
+    border-radius: 50px; /* Make the border round */
+    padding: 5px;
+}
+.mini-page {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 91%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
+    font-size: 13px;
+    font-family: monospace;
+}
+
+
+/*.show-info-button {*/
+/*    width: 10%;*/
+/*    height: 10px;*/
+/*    font-size: 20px;*/
+/*    background-color: #c9c8cf;*/
+/*    color: #6A6677;*/
+/*    border: none;*/
+/*    border-radius: 30%;*/
+/*    cursor: pointer;*/
+/*    padding: 5px;*/
+/*    box-sizing: border-box;*/
+/*    z-index: 999;*/
+/*}*/
+
+.cards:hover {
+    /*border: solid #89d770 3px ;*/
+    border: solid white 3px;
+}
+.mini-page.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.add-button {
+    position: relative;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: #9796a8;
+    font-size: 11px;
+    background-color: #c9c8cf;
+}
+.add-button:hover {
+   border: solid white 1.5px
+}
+
+.inv-icon, .basket-icon, .rocket-icon, .calendar-icon {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.inv-icon{
+    width: 50px;
+}
+.sidenav-list li:hover {
+    box-shadow: 33px 0px 0px #6A6677/* Adjust the shadow size and color as needed */
+}
+
+
+.inv-icon img {
+    width: 100%;
+    object-fit: fill;
+}
+
+
+

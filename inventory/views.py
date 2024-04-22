@@ -14,6 +14,7 @@ def inventory_user(request):
 def inventory_admin(request):
     return render(request, 'inventory_admin.html')
 
-
+def dashboard_user(request):
+    return render(request, 'dashboard_user.html')
 def admin(request):
     return HttpResponse('<p>hello </p>')
