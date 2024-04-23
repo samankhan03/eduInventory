@@ -45,39 +45,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-        // Select the add to cart forms
-        const addToCartForms = document.querySelectorAll('.add-to-cart-form');
+    // Add event listener to all add-to-basket forms
+    document.querySelectorAll('.add-to-basket-form').forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
 
-        // Add event listeners to each form
-        addToCartForms.forEach(form => {
-            form.addEventListener('submit', async function(event) {
-                event.preventDefault(); // Prevent the default form submission
+            // Get the item ID from the form's data attribute
+            var itemId = form.getAttribute('data-item-id');
 
-                // Get the form data
-                const formData = new FormData(form);
-                try {
-                    // Send a POST request to the add-item endpoint
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData
-                    });
+            // Create a new FormData object to send the form data
+            var formData = new FormData(form);
 
-                    // Parse the JSON response
-                    const data = await response.json();
-
-                    // Check if the item was added successfully
-                    if (data.success) {
-                        // Show a success message to the user
-                        alert('Item added to cart successfully!');
-                    } else {
-                        // Show an error message if something went wrong
-                        alert('Failed to add item to cart. Please try again later.');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('An error occurred while processing your request. Please try again later.');
+            // Send the AJAX request to add the item to the basket
+            fetch('/basket/add-to-basket/' + itemId + '/', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
                 }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Optionally, display a success message to the user
+                    alert('Item added to basket successfully');
+                } else {
+                    // Handle the error response
+                    alert('Failed to add item to basket');
+                }
+            })
+            .catch(error => {
+                // Handle any network errors
+                alert('Network error:', error);
             });
         });
-
+    });
 });
