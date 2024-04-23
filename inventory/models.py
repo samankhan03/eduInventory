@@ -1,12 +1,5 @@
 from django.db import models
-
-
-class User(models.Model):
-    username = models.CharField(max_length=100)
-    email = models.EmailField()
-
-    class Meta:
-        db_table = 'user'
+from django.contrib.auth.models import User
 
 
 class InventoryItem(models.Model):
@@ -32,3 +25,19 @@ class BorrowedItem(models.Model):
 
     class Meta:
         db_table = 'borrowed_item'
+
+
+class Reservation(models.Model):
+    STATUS_CHOICES = [
+        ('PENDING', 'Pending'),
+        ('APPROVED', 'Approved'),
+        ('REJECTED', 'Rejected'),
+    ]
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    inventory_item = models.ForeignKey(InventoryItem, on_delete=models.CASCADE)
+    reservation_date = models.DateField(default=None, null=True, blank=True)
+    return_date = models.DateField(default=None, null=True, blank=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
+
+    class Meta:
+        db_table = 'reservation'

@@ -1,11 +1,5 @@
 from django.contrib import admin
-from .models import User, InventoryItem, BorrowedItem
-
-
-
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    pass
+from .models import InventoryItem, BorrowedItem, Reservation
 
 
 @admin.register(InventoryItem)
@@ -17,4 +11,9 @@ class InventoryItemAdmin(admin.ModelAdmin):
 
 @admin.register(BorrowedItem)
 class BorrowedItemAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Reservation)
+class Reservation(admin.ModelAdmin):
     pass
