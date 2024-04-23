@@ -46,14 +46,16 @@ def add_item(request, item_id):
         request.session['basket_items'] = item_ids
 
         # Print the session data to the console for testing
-        print("Basket items:", item_ids)
+        print("Basket items:")
+        for id in item_ids:
+            item = InventoryItem.objects.get(pk=id)
+            print(f"ID: {item.id}, Name: {item.name}")
 
         # Return a JSON response indicating success
         return JsonResponse({'message': 'Item added to basket successfully'})
     else:
         # Return a JSON response indicating failure
         return JsonResponse({'error': 'Invalid request method'})
-
 
 def get_basket(request):
     if request.method == 'GET':
