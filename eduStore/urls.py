@@ -23,5 +23,5 @@ urlpatterns = [
     path("dashboard/", include("inventory.urls")),
     path("login/", include("inventory.urls")),
     path("register/", include("inventory.urls")),
-
+    path("basket/", include("inventory.urls")),
 ]

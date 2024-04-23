@@ -92,9 +92,9 @@
             <tbody>
                 {% for item in inventory_items %}
                 <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
-                    <td>{{ item.name }}</td> 
+                    <td>{{ item.name }}</td>
                     <td>{{ item.item_type }}</td>
-            
+
                     {% if item.availability == True %}
                         <td>Available</td>
                     {% else %}
@@ -102,10 +102,10 @@
                     {% endif %}
                     <td>{{ item.quantity }}</td>
                     <td>
-                        <form class="add-to-basket-form" data-item-id="{{ item.id }}">
+                        <form class="add-to-basket-form" data-item-id="{{ item.id }}" data-item-name="{{ item.name }}">
                             {% csrf_token %}
                             <input type="hidden" name="item-id" value="{{ item.id }}">
-                            <button type="submit">Add</button>
+                            <button type="submit">+</button>
                         </form>
                     </td>
                 </tr>

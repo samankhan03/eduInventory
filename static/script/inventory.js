@@ -54,6 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get the item ID from the form's data attribute
             var itemId = form.getAttribute('data-item-id');
 
+            // Get the item name from the form's data attribute
+            var itemName = form.getAttribute('data-item-name');
+
+            // Log the item name to the console for debugging
+            console.log('Item Name:', itemName);
+
             // Create a new FormData object to send the form data
             var formData = new FormData(form);
 
@@ -68,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => {
                 if (response.ok) {
                     // Optionally, display a success message to the user
-                    alert('Item added to basket successfully');
+                    alert('Item ' + itemName + ' added to basket successfully');
                 } else {
                     // Handle the error response
                     alert('Failed to add item to basket');

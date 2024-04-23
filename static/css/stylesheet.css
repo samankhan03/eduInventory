@@ -338,8 +338,7 @@ section {
 #inventory-list table {
     width: 100%;
     border-collapse: collapse;
-    border-spacing: 0;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 #inventory-list th {
@@ -349,13 +348,31 @@ section {
     border-bottom: 1px solid #ddd;
     text-align: left;
     font-weight: normal;
-
 }
 #inventory-list td {
     padding: 8px;
     border-bottom: 1px solid #ddd;
     text-align: left;
-    /*border: solid black 1px;*/
+}
+
+#inventory-list td:last-child{
+    padding: 8px;
+    border-bottom: dashed white 1px;
+    text-align: left;
+    display: flex;
+   justify-content: center;
+}
+
+#inventory-list button{
+    color: white;
+    height: 25px;
+    width: 25px;
+    border: solid #9796a8 1px;
+    border-radius: 10px;
+    background-color:  #9796a8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -404,6 +421,8 @@ section {
 .add-button a {
     text-decoration: none;
     color: #949494;
-
 }
+
+
+
 
