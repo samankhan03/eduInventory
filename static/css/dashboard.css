@@ -265,4 +265,21 @@ body {
     color: white;
 }
 
-/* */
+
+.rebook-button {
+        position: relative;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 10px;
+        border: 1px solid #dadada;
+        cursor: pointer;
+        box-shadow: #9796a8;
+        font-size: 11px;
+        margin-left: 60px;
+
+
+}
+.rebook-button a {
+    text-decoration: none;
+    color: white;
+}

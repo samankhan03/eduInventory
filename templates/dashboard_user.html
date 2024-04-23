@@ -11,7 +11,7 @@
 <body>
     <nav class="sidenav">
         <ul class="sidenav-list">
-            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="{% static 'images/purplelogo.png'%}" alt="purple-logo" width="63" height="63" > </a></li>
+            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="{% static 'images/purplelogo.png'%}" alt="purple-logo" width="63" height="63" > </a> </div></li>
             <div class="basket-icon" >
                 <li><a href="{% url 'inventory-user' %}"> <img src="{% static 'images/basket.png'%}" alt="basket-icon" width="50" height="50"></a> </li>
             </div>
@@ -105,11 +105,13 @@
                      <div class="card-content">
                         <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
                         item name
+                          <div class="rebook-button"> <a href="{% url 'basket' %}"> 
+                              Rebook </a>
+                          </div>
                     </div>
                     <div class="mini-page">
                             Booked on:
-                            <br>
-                            Re-book
+                            
                     </div>
                 </div>
                 <div class="cards" id = myCard>
