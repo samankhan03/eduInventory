@@ -35,7 +35,11 @@
 
     </div>
     <div class="hi-header">
-        <h2> Hi, Ashley </h2>
+        <h2> Hi,  {% if request.user.username %}
+            {{ request.user.username }}
+        {% else %}
+            {{ "not login" }}
+        {% endif %} </h2>
         <div class="welcome"> Welcome to your dashboard! </div>
     </div>
 
