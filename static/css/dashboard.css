@@ -160,23 +160,32 @@ body {
     cursor: pointer;
 }
 
-.card-content {
+.hb-block .card-content {
+    padding-top: 5px;
     display: flex;
     color: white;
-    justify-content: left;
     font-family: monospace;
-    margin-top: 14px;
     position: relative;
-
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
 }
+
+.ib-block .card-content, .cr-block .card-content {
+    padding-top: 5px;
+    display: flex;
+    color: white;
+    font-family: monospace;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .card-content img {
-    margin-top: -14px;
     width: 30px; /* Adjust the size of the icon */
     height: 30px; /* Adjust the size of the icon */
-    margin-right: 33px; /* Add spacing between icon and item name */
-    border-radius: 50px; /* Make the border round */
-    padding: 5px;
 }
 .mini-page {
     visibility: hidden;
@@ -196,20 +205,6 @@ body {
     font-family: monospace;
 }
 
-
-/*.show-info-button {*/
-/*    width: 10%;*/
-/*    height: 10px;*/
-/*    font-size: 20px;*/
-/*    background-color: #c9c8cf;*/
-/*    color: #6A6677;*/
-/*    border: none;*/
-/*    border-radius: 30%;*/
-/*    cursor: pointer;*/
-/*    padding: 5px;*/
-/*    box-sizing: border-box;*/
-/*    z-index: 999;*/
-/*}*/
 
 .cards:hover {
     /*border: solid #89d770 3px ;*/
@@ -265,4 +260,30 @@ body {
     color: white;
 }
 
-/* */
+
+.rebook-button {
+        position: relative;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 10px;
+        border: 1px solid #dadada;
+        cursor: pointer;
+        font-size: 11px;
+}
+.rebook-button a {
+    text-decoration: none;
+    color: white;
+}
+.rebook-button:hover {
+    border: solid #949494 1px;
+}
+
+.hb-block .item-name {
+
+    width: 50%;
+}
+
+.item-name {
+
+    width: 80%;
+}

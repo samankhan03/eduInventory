@@ -11,7 +11,7 @@
 <body>
     <nav class="sidenav">
         <ul class="sidenav-list">
-            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="{% static 'images/purplelogo.png'%}" alt="purple-logo" width="63" height="63" > </a></li>
+            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="{% static 'images/purplelogo.png'%}" alt="purple-logo" width="63" height="63" > </a> </div></li>
             <div class="basket-icon" >
                 <li><a href="{% url 'inventory-user' %}"> <img src="{% static 'images/basket.png'%}" alt="basket-icon" width="50" height="50"></a> </li>
             </div>
@@ -35,7 +35,11 @@
 
     </div>
     <div class="hi-header">
-        <h2> Hi, Ashley </h2>
+        <h2> Hi,  {% if request.user.username %}
+            {{ request.user.username }}
+        {% else %}
+            {{ "not login" }}
+        {% endif %} </h2>
         <div class="welcome"> Welcome to your dashboard! </div>
     </div>
 
@@ -45,7 +49,7 @@
                 <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
-                        item name 
+                        <div class="item-name"> item name </div>
                     </div>
                         <div class="mini-page">
                             Due Date:
@@ -54,7 +58,7 @@
                 <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
-                        item name
+                        <div class="item-name">item name</div>
                     </div>
                         <div class="mini-page">
                             Due Date:
@@ -64,7 +68,7 @@
                 <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
-                        item name
+                        <div class="item-name">item name</div>
                     </div>
                          <div class="mini-page">
                             Due Date:
@@ -76,19 +80,19 @@
                 <div class="cards">
                     <div class="card-content">
                         <img src="{% static 'images/macmini.png'%}" alt="laptop-icon" height="90" width="90">
-                        item name
+                        <div class="item-name">item name</div>
                     </div>
                 </div>
                 <div class="cards">
                     <div class="card-content">
                         <img src="{% static 'images/macmini.png'%}" alt="laptop-icon" height="90" width="90">
-                        item name
+                        <div class="item-name">item name</div>
                     </div>
                 </div>
                 <div class="cards">
                     <div class="card-content">
                         <img src="{% static 'images/macmini.png'%}" alt="laptop-icon" height="90" width="90">
-                        item name
+                        <div class="item-name">item name</div>
                     </div>
                 </div>
                  <div class="add-button"> <a href="{% url 'basket' %}"> 
@@ -101,18 +105,23 @@
                 <div class="cards" id = myCard>
                      <div class="card-content">
                         <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
-                        item name
+                        <div class="item-name">Oculus Quest 2 w/ Controller Pair</div> 
+                          <div class="rebook-button">
+                              <a href="{% url 'basket' %}">Rebook </a>
+                          </div>
                     </div>
                     <div class="mini-page">
                             Booked on:
-                            <br>
-                            Re-book
+                            
                     </div>
                 </div>
                 <div class="cards" id = myCard>
                      <div class="card-content">
                         <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
-                        item name
+                         <div class="item-name"> item name </div>
+                         <div class="rebook-button">
+                              <a href="{% url 'basket' %}">Rebook </a>
+                          </div>
                     </div>
                      <div class="mini-page">
                             Booked on:
@@ -121,7 +130,10 @@
                 <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
-                        item name
+                        <div class="item-name">item name </div>
+                        <div class="rebook-button">
+                              <a href="{% url 'basket' %}">Rebook </a>
+                          </div>
                     </div>
                      <div class="mini-page">
                             Booked on:
@@ -130,7 +142,10 @@
                 <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
-                        item name
+                        <div class="item-name">item name</div>
+                        <div class="rebook-button">
+                              <a href="{% url 'basket' %}">Rebook </a>
+                        </div>
                     </div>
                      <div class="mini-page">
                             Booked on:
@@ -139,7 +154,10 @@
                 <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
-                        item name
+                        <div class="item-name"> item name </div>
+                        <div class="rebook-button">
+                              <a href="{% url 'basket' %}">Rebook </a>
+                        </div>
                     </div>
                      <div class="mini-page">
                             Booked on:
@@ -148,7 +166,10 @@
                 <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
-                        item name
+                        <div class="item-name">item name</div>
+                        <div class="rebook-button">
+                              <a href="{% url 'basket' %}">Rebook </a>
+                        </div>
                     </div>
                      <div class="mini-page">
                             Booked on:
