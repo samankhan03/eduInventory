@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => {
                 if (response.ok) {
                     // Optionally, display a success message to the user
-                    alert('Item ' + itemName + ' added to basket successfully');
+                    alert('Item [' + itemName + '] added to basket');
                 } else {
                     // Handle the error response
                     alert('Failed to add item to basket');

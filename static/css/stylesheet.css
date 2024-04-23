@@ -373,6 +373,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 
@@ -414,6 +415,7 @@ section {
 }
 .logout-icon {
     margin-top: auto;
+    cursor: pointer;
 }
 .table-titles {
     color: #949494;
