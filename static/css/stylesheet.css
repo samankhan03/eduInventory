@@ -355,7 +355,7 @@ section {
     padding: 8px;
     border-bottom: 1px solid #ddd;
     text-align: left;
-
+    /*border: solid black 1px;*/
 }
 
 
@@ -404,5 +404,6 @@ section {
 .add-button a {
     text-decoration: none;
     color: #949494;
+
 }
 
