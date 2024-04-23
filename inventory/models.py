@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class InventoryItem(models.Model):
@@ -21,7 +22,7 @@ class InventoryItem(models.Model):
 class BorrowedItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     item = models.ForeignKey(InventoryItem, on_delete=models.CASCADE)
-    borrow_date = models.DateField()
+    borrow_date = models.DateField(default=timezone.now)
 
     class Meta:
         db_table = 'borrowed_item'

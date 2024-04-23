@@ -7,4 +7,5 @@ urlpatterns = [
     path("admin", views.inventory_admin, name="inventory-admin"),
     path("user/", views.dashboard_user, name="dashboard-user"),
     path("basket/", views.basket, name="basket"),
+    path("add-to-basket/<int:item_id>/", views.add_item, name="add-item")
 ]
