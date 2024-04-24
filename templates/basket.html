@@ -36,7 +36,7 @@
                     
                     <td>{{ basket_item.inventory_item.name }}</td>
                     <td>{{ basket_item.inventory_item.item_type }}</td>
-                    <td>{{ basket_item.inventory_item.quantity }}</td>
+                    <td>{{ basket_item.quantity }}</td>
                     <td><button class = "remove" data-item-id="{{ basket_item.id }}"><a href="{% url 'remove_item' basket_item.id %}">Remove</a></button></td>
                 
                 </tr>

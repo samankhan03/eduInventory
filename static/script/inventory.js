@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Create a new FormData object to send the form data
             var formData = new FormData(form);
+            formData.set('quantity', 1);
 
             // Send the AJAX request to add the item to the basket
             fetch('/basket/add-to-basket/' + itemId + '/', {
