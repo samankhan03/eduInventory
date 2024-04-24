@@ -24,7 +24,6 @@
         <table>
             <thead>
                 <tr>
-                        <th>Product</th>
                         <th>Item Name</th>
                         <th>Type</th>
                         <th>Quantity</th>
@@ -32,16 +31,17 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in inventory_items %}
-                <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
-                    <td> </td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.item_type }}</td>
-
-                    <td>{{ item.quantity }}</td>
-                    <td><button class = "remove">Remove</button></td>
+                {% for basket_item in basket %}
+                <tr class="inventory-item" data-user="{{ basket_item.user }}" data-item="{{ basket_item.item }}">
+                    
+                    <td>{{ basket_item.inventory_item.name }}</td>
+                    <td>{{ basket_item.inventory_item.item_type }}</td>
+                    <td>{{ basket_item.inventory_item.quantity }}</td>
+                    <td><button class = "remove" data-item-id="{{ basket_item.id }}"><a href="{% url 'remove_item' basket_item.id %}">Remove</a></button></td>
+                
                 </tr>
                 {% endfor %}
+            
             </tbody>
         </table>
 
@@ -53,6 +53,6 @@
     <div class="reserve"> RESERVE </div>
 
 </div>
-<script src="{% static 'script/inventory.js' %}"></script>
+<script src="{% static 'script/basket.js' %}"></script>
 </body>
 </html>

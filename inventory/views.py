@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.http import JsonResponse
+from django.shortcuts import redirect, get_object_or_404
+from .models import InventoryItem
 
 # creating views
 from .models import *
@@ -74,8 +77,9 @@ def dashboard_user(request):
 
 
 def basket(request):
-    inventory_items = InventoryItem.objects.all()
-    return render(request, 'basket.html', {'inventory_items': inventory_items})
+    basket_items = Basket.objects.all()
+
+    return render(request, 'basket.html', {'basket': basket_items})
 
 
 def admin(request):
@@ -111,16 +115,28 @@ def add_item(request, item_id):
         # Return a JSON response indicating failure
         return JsonResponse({'error': 'Invalid request method'})
 
+
 def get_basket(request):
     if request.method == 'GET':
         # Get the list of item IDs from the session
         item_ids = request.session.get('basket_items', [])
         # Retrieve the items from the database using the IDs
-        items = InventoryItem.objects.filter(id__in=item_ids)
+        borrowed_items = BorrowedItem.objects.all()
         # Create BorrowedItem instances for each item
-        for item in items:
+        for item in borrowed_items:
             BorrowedItem.objects.create(user=request.user, item=item)
         # Clear the session
         request.session['basket_items'] = []
         # Render the basket page with the items
-        return render(request, 'basket.html', {'items': items})
+        return render(request, 'basket.html', {'items': borrowed_items})
+
+
+def remove_item(request, item_id):
+    # Retrieve the BasketItem object using the item_id
+    basket_item = get_object_or_404(Basket, id=item_id)
+
+    # Delete the BasketItem object from the database
+    basket_item.delete()
+
+    # Redirect to a success URL
+    return redirect('basket')

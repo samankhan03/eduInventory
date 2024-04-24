@@ -42,3 +42,12 @@ class Reservation(models.Model):
 
     class Meta:
         db_table = 'reservation'
+
+
+class Basket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    inventory_item = models.ForeignKey(InventoryItem, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
+    class Meta:
+        db_table = 'basket'
