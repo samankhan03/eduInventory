@@ -1,53 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>InvHtml</title>
     <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
 
 
 </head>
 <body>
     <nav class="sidenav">
         <ul class="sidenav-list">
-            <li> <img src="../static/images/purplelogo.png" alt="purple-logo" width="63" height="63" ></li>
-            <div class="inv-icon"> 
-                <li> <img src="../static/images/invlogo.png" alt="inventory-icon" width="37" height="37"> </li>
-            </div>
-           
+            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"> <img src="{%  static 'images/purplelogo.png' %}" alt="purple-logo" width="63" height="63" > </a> </div></li>
             <div class="basket-icon"> 
-                <li> <img src="../static/images/basket.png" alt="basket-icon" width="53" height="53"> </li>
+                <li><a href="{% url 'basket' %}"> <img src="{% static 'images/basket.png' %}" alt="basket-icon" width="53" height="53"></a> </li>
             </div>
-             <div class="rocket-icon"> 
-                <li> <img src="../static/images/rocket.png" alt="rocket-icon" width="53" height="53"> </li>
-            </div>
-             <div class="calendar-icon"> 
-                <li> <img src="../static/images/calendar.png" alt="calendar-icon" width="55" height="55"> </li>
-            </div>
-              <div class="person-icon"> 
-                <li> <img src="../static/images/person.png" alt="person-icon" width="53" height="53"> </li>
+             <div class="logout-icon">
+                <li> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </li>
             </div>
         </ul>
+              
     </nav>
 
 <section id="inv">
     <section id="filter-list">
     <div class="inventory-header">
         <h2> Inventory </h2>
-    <div class="custom-dropdown-one">
-        <select id="sort-filter">
-            <option value="name">Category: All </option>
-            <option value="date">Category: Laptop</option>
-            <option value="Mobile Device">Category: Mobile Device</option>
-            <option value="Headset"> Category: Audio Device</option>
-            <option value="Furniture"> Category: Furniture</option>
-        </select>
-
-    </div>
-
+            <div class="custom-dropdown-one">
+                <select id="type-filter" name="item-type" onchange="filterInventory()">
+                    <option value="all">All</option>
+                    <option value="PC/Laptop">PC/Laptop</option>
+                    <option value="VR Headset">VR Headset</option>
+                    <option value="Camera/Sensors">Camera/Sensors</option>
+                    <option value="PC Peripherals">PC Peripherals</option>
+                    <option value="Phone/Tablet">Phone/Tablet</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Tripod">Tripod</option>
+                    <option value="Other">Other</option>
+                    <option value="VR Controller">VR Controller</option>
+                    <option value="Power/Cable">Power/Cable</option>
+                </select>
+            </div>
         <div class="custom-dropdown-two">
-        <select id="brand-filter">
+        <select id="date-filter">
             <option value="name">Return Date: </option>
             <option value="today">Today</option>
             <option value="tomorrow">Tomorrow</option>
@@ -56,226 +52,68 @@
     </div>
         <div class="search-bar">
             <form action="/search" method="get">
-                <input type="text" name="q" placeholder="Quick Search">
-                <div class="search-icon">
-                    <img src="../static/images/search-icon.png" alt="search icon">
-                </div>
+                <input type="text" name="searchbar" placeholder="Quick Search">
                 <button type="submit"> </button>
             </form>
         </div>
         
-        <div class="add-button">
-            + Add to cart
+        <div class="add-button"> <a href="{% url 'basket' %}">
+            Go to Basket 
+        </a>
         </div>
 
 
 </div>
 
-
-
-
     <section id="inventory-list">
-         <div class="inventory-filter">
-             <div class="custom-dropdown">
-                <select id="stock-filter">
-                    <option value="all">All </option>
-                    <option value="in-stock"> Available </option>
-                    <option value="out-of-stock"> Unavailable </option>
-                </select>
-                <span class="arrow">▼</span>
-             </div>
-        </div>
-
-        <div class="inventory">
-             <div class="inventory-titles">
-{#                    <div class="header-item small-column">#}
-{#                        ##}
-{#                        <input type="checkbox" name="item1">#}
-{#                        <input type="checkbox" name="item2">#}
-{#                        <input type="checkbox" name="item3">#}
-{#                        <input type="checkbox" name="item4">#}
-{#                        <input type="checkbox" name="item5">#}
-{#                        <input type="checkbox" name="item6">#}
-{#                        <input type="checkbox" name="item7">#}
-{#                        <input type="checkbox" name="item8">#}
-{#                        <input type="checkbox" name="item9">#}
-{#                        <input type="checkbox" name="item10">#}
-{#                        <input type="checkbox" name="item11">#}
-{#                        <input type="checkbox" name="item12">#}
-{#                        <input type="checkbox" name="item13">#}
-{#                        <input type="checkbox" name="item14">#}
-{#                        <input type="checkbox" name="item15">#}
-{#                        <input type="checkbox" name="item16">#}
-{#                        <input type="checkbox" name="item17">#}
-{#                        <input type="checkbox" name="item18">#}
-{#                        <input type="checkbox" name="item19">#}
-{#                        <input type="checkbox" name="item20">#}
-{#                        <input type="checkbox" name="item21">#}
-{#                        <input type="checkbox" name="item22">#}
-{#                        <input type="checkbox" name="item23">#}
-{#                        <input type="checkbox" name="item24">#}
-{#                        <input type="checkbox" name="item25">#}
-{#                        <input type="checkbox" name="item26">#}
-{#                        <input type="checkbox" name="item27">#}
-{#                    </div>#}
-                 <div class="header-item"><div class="header-hash"> <div class="hash"># </div>     <div class="item-name"> Item Name</div></div>
-                        <div class="inventory-items">
-                            <div class="item-info">
-                                <label>
-                                        <input type="checkbox" name="item1">
-                                        <img src="../static/images/laptop.png" alt="Icon 1">
-                                        Gigabyte Aero15 1070
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item2">
-                                    <img src="../static/images/laptop.png" alt="Icon 2">
-                                    Gigabyte Aero15-X9 2070
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item3">
-                                    <img src="../static/images/laptop.png" alt="Icon 3">
-                                    Gigabyte Aero15-X9 2070
-                                </label>
-                                    <label>
-                                        <input type="checkbox" name="item4">
-                                        <img src="../static/images/laptop.png" alt="Icon 4">
-                                        Gigabyte Aero15-X9 2070
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item5">
-                                    <img src="../static/images/laptop.png" alt="Icon 5">
-                                    Gigabyte Aero15-X9 2070
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item6">
-                                    <img src="../static/images/googlepixel.png" alt="Icon 6">
-                                    Google Pixel 2
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item7">
-                                    <img src="../static/images/samsung.png" alt="Icon 7">
-                                    Samsung Galaxy S6
-                                </label>
-                                 <label>
-                                     <input type="checkbox" name="item8">
-                                    <img src="../static/images/ipadmini.png" alt="Icon 8">
-                                    Ipad Air Gen3
-                                 </label>
-                    
-                                 <label>
-                                     <input type="checkbox" name="item9">
-                                    <img src="../static/images/ipadpro.png" alt="Icon 9">
-                                    Ipad Pro Gen6
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item10">
-                                    <img src="../static/images/macmini.png" alt="Icon 10">
-                                    Mac Mini M2
-                                </label>
-                    
-                                 <label>
-                                    <input type="checkbox" name="item11">
-                                    <img src="../static/images/laptop.png" alt="Icon 11">
-                                    Gigabyte Aorus15X 4070
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item12">
-                                    <img src="../static/images/headset.png" alt="Icon 12">
-                                    Oculus Quest 1
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item13">
-                                    <img src="../static/images/headset.png" alt="Icon 13">
-                                    Oculus Quest 1
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item14">
-                                    <img src="../static/images/headset.png" alt="Icon 14">
-                                    Oculus Quest 1
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item15">
-                                    <img src="../static/images/headset.png" alt="Icon 15">
-                                    Pico 4
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item16">
-                                    <img src="../static/images/headset.png" alt="Icon 16">
-                                    Pico 4
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item17">
-                                    <img src="../static/images/headset.png" alt="Icon 17">
-                                    Pico 4 Enterprise
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item18">
-                                    <img src="../static/images/headset.png" alt="Icon 18">
-                                    Oculus Quest 2
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item19">
-                                    <img src="../static/images/headset.png" alt="Icon 19">
-                                    Oculus Quest 2
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item20">
-                                    <img src="../static/images/headset.png" alt="Icon 20">
-                                    Oculus Quest 2
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item21">
-                                    <img src="../static/images/headset.png" alt="Icon 21">
-                                    Viva Focus 3
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item22">
-                                    <img src="../static/images/headset.png" alt="Icon 22">
-                                    Viva Focus 3
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item23">
-                                    <img src="../static/images/headset.png" alt="Icon 23">
-                                    Viva Focus 3
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item24">
-                                    <img src="../static/images/headset.png" alt="Icon 24">
-                                    Viva Focus 3
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item25">
-                                    <img src="../static/images/headset.png" alt="Icon 25">
-                                    Viva Focus 3
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item26">
-                                    <img src="../static/images/headset.png" alt="Icon 26">
-                                    Hololens 1
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item27">
-                                    <img src="../static/images/headset.png" alt="Icon 27">
-                                    Hololens 2
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header-item"> <div class="item-name">Type</div>
-                        
-                    </div>
-                    <div class="header-item">Description</div>
-                    <div class="header-item">Availability</div>
-        <!-- Add more header items as needed -->
+            <div class="inventory-filter">
+                <div class="custom-dropdown">
+                    <select id="stock-filter" name="availability" onchange="filterInventory()">
+                        <option value="all">All</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                    <span class="arrow">▼</span>
+                </div>
             </div>
-            
-        </div>
+        <!-- Render the HTML table containing database data-->
+        <table>
+            <thead>
+                <tr>
+                        <th>Item Name</th>
+                        <th>Type</th>
+                        <th>Availability</th>
+                        <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in inventory_items %}
+                <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.item_type }}</td>
+
+                    {% if item.availability == True %}
+                        <td>Available</td>
+                    {% else %}
+                         <td>Unavailable</td>
+                    {% endif %}
+                    <td>{{ item.quantity }}</td>
+                    <td>
+                        <form class="add-to-basket-form" data-item-id="{{ item.id }}" data-item-name="{{ item.name }}">
+                            {% csrf_token %}
+                            <input type="hidden" name="item-id" value="{{ item.id }}">
+                            <button type="submit">+</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      
     </section>
 
     </section>
 </section>
+    <script src="{% static 'script/inventory.js' %}"></script>
 </body>
-
-
-
 </html>

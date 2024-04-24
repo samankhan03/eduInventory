@@ -13,6 +13,7 @@ body {
     position: fixed;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     top: 0;
     left: 0;
     z-index: 1;
@@ -114,11 +115,17 @@ body {
     width: 100%;
     height: 250px;
     display: flex;
-    justify-content: center;
+
 }
 .guy img{
     position: relative;
-    left: 25px;
+    bottom:-380px ;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+
 }
 .title {
     font-family: monospace;
@@ -142,6 +149,7 @@ body {
 }
 
 .cards {
+    position: relative;
     width: 90%;
     height: 60px;
     margin-bottom: 10px;
@@ -149,23 +157,133 @@ body {
     border-radius: 5px;
     padding: 10px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
-.card-content {
+.hb-block .card-content {
+    padding-top: 5px;
     display: flex;
     color: white;
     font-family: monospace;
-    margin-top: 14px;
-
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
 }
+
+.ib-block .card-content, .cr-block .card-content {
+    padding-top: 5px;
+    display: flex;
+    color: white;
+    font-family: monospace;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .card-content img {
-    margin-top: -14px;
     width: 30px; /* Adjust the size of the icon */
     height: 30px; /* Adjust the size of the icon */
-    margin-right: 33px; /* Add spacing between icon and item name */
-    border-radius: 50px; /* Make the border round */
-    padding: 5px;
+}
+.mini-page {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 91%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
+    font-size: 13px;
+    font-family: monospace;
 }
 
 
+.cards:hover {
+    /*border: solid #89d770 3px ;*/
+    border: solid white 3px;
+}
+.mini-page.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.add-button {
+    position: relative;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: #9796a8;
+    font-size: 11px;
+    background-color: #c9c8cf;
+}
+.add-button:hover {
+   border: solid white 1.5px
+}
+
+.inv-icon, .basket-icon, .rocket-icon, .calendar-icon {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.inv-icon{
+    width: 50px;
+}
+.sidenav-list li:hover {
+    box-shadow: 33px 0px 0px #6A6677;
+}
+
+
+.inv-icon img {
+    width: 100%;
+    object-fit: fill;
+}
+
+.add-button a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.rebook-button {
+        position: relative;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 10px;
+        border: 1px solid #dadada;
+        cursor: pointer;
+        font-size: 11px;
+}
+.rebook-button a {
+    text-decoration: none;
+    color: white;
+}
+.rebook-button:hover {
+    border: solid #949494 1px;
+}
+
+.hb-block .item-name {
+
+    width: 50%;
+}
+
+.item-name {
+
+    width: 80%;
+}

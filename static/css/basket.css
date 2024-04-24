@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, SansSerif;
+    margin-left: 40px;
+    margin-top:3px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.basket-header {
+    margin-top: 70px;
+    font-family: monospace;
+    font-size: 23px;
+    text-align: center;
+    font-weight: lighter;
+
+}
+
+.basket-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+}
+.basket-icon img {
+    margin-right: -5px;
+    margin-top: 5px;
+}
+.basket-text {
+    font-size: 11px;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    display: flex;
+}
+#basket-items {
+    position: relative;
+    margin: 0 auto;
+    width: 70%;
+    padding: 7px;
+}
+
+#basket-items table {
+    margin-top: 70px;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 13px;
+    align-items: center;
+}
+
+#basket-items th {
+    width: 20%;
+    font-family: Arial, Serif;
+    color: #949494;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-weight: normal;
+
+}
+#basket-items td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-family: monospace;
+    font-size:13px;
+
+
+}
+.action-buttons {
+    bottom: 0;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+.action-buttons .go-back,
+.action-buttons .reserve {
+    padding: 5px 20px;
+    margin: 0 10px;
+    font-size: 10px;
+    font-family: Arial, Serif;
+    color: #949494;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+}
+.action-buttons .go-back a,
+.action-buttons .reserve a {
+    text-decoration: none;
+    color: #949494;
+}
+
+.remove {
+    color: #949494;
+    cursor: pointer;
+}
+
+.basket-text a {
+    text-decoration: none;
+    color: black;
+}

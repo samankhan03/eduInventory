@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <title>BasketHtml</title>
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
+     <link rel="stylesheet" href="{% static 'css/basket.css'%}">
+</head>
+<body>
+<div class="basket-header">
+         YOUR BASKET
+</div>
+<div class="logo"> <a href="{% url 'dashboard-user' %}">
+    <img src="{% static 'images/purplelogo.png' %}" alt="Menu Icon" width="63" height="63"> </a>
+
+</div>
+ <div class="basket-icon"> <a href="{% url 'basket' %}">
+         <img src="{% static 'images/basket.png' %}" alt="Basket Icon" width="50" height="50"></a>
+     <div class="basket-text"> <a href="{% url 'basket' %}">BASKET (3) </a></div>
+ </div>
+
+<section id = "basket-items">
+        <table>
+            <thead>
+                <tr>
+                        <th>Product</th>
+                        <th>Item Name</th>
+                        <th>Type</th>
+                        <th>Quantity</th>
+                        <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in inventory_items %}
+                <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
+                    <td> </td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.item_type }}</td>
+
+                    <td>{{ item.quantity }}</td>
+                    <td><button class = "remove">Remove</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+
+</section>
+<div class="action-buttons">
+    <div class="go-back"><a href="{% url 'inventory-user' %}"> GO BACK </a></div>
+    <div class="reserve"> RESERVE </div>
+
+</div>
+<script src="{% static 'script/inventory.js' %}"></script>
+</body>
+</html>
