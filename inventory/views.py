@@ -1,8 +1,9 @@
+from datetime import timedelta
+
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-
 
 from .models import *
 from .forms import CreateUserForm
@@ -63,18 +64,12 @@ def login_page(request):
 
 def dashboard_user(request):
     basket_items = Basket.objects.all()
-    return render(request, 'dashboard_user.html', {'basket':basket_items})
-
-
+    return render(request, 'dashboard_user.html', {'basket': basket_items})
 
 
 def basket(request):
     basket_items = Basket.objects.all()
     return render(request, 'basket.html', {'basket': basket_items})
-
-
-def admin(request):
-    return HttpResponse('<p>hello </p>')
 
 
 def add_item(request, item_id):
@@ -87,7 +82,8 @@ def add_item(request, item_id):
             basket_item.save()
         else:
             inventory_item = get_object_or_404(InventoryItem, pk=item_id)
-            basket_item = Basket.objects.create(user=request.user, inventory_item=inventory_item, quantity=1)
+            Basket.objects.create(user=request.user, inventory_item=inventory_item, quantity=1)
+
         return JsonResponse({'message': 'Item added to basket successfully'})
     else:
         return JsonResponse({'error': 'Invalid request method'})
@@ -106,3 +102,29 @@ def remove_item(request, item_id):
     basket_item = get_object_or_404(Basket, id=item_id)
     basket_item.delete()
     return redirect('basket')
+
+
+def reserve_all_items(request):
+    if request.method == 'POST':
+        basket_items = Basket.objects.filter(user=request.user)
+        for basket_item in basket_items:
+            inventory_item = basket_item.inventory_item
+            inventory_item.availability = False
+            inventory_item.save()
+            inventory_item.return_date = timezone.now() + timedelta(days=7)
+            inventory_item.save()
+            BorrowedItem.objects.create(user=request.user, item=inventory_item)
+            reservation = Reservation.objects.create(user=request.user, item=inventory_item)
+            reservation.reservation_date = timezone.now()
+            reservation.return_date = timezone.now() + timedelta(days=7)
+            reservation.save()
+            inventory_item.quantity -= basket_item.quantity
+            if inventory_item.quantity <= 0:
+                inventory_item.quantity = 0
+            inventory_item.save()
+
+            basket_item.delete()
+
+        return redirect('basket')
+    else:
+        return JsonResponse({'error': 'Invalid request method'})

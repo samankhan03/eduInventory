@@ -17,7 +17,7 @@
 </div>
  <div class="basket-icon"> <a href="{% url 'basket' %}">
          <img src="{% static 'images/basket.png' %}" alt="Basket Icon" width="50" height="50"></a>
-     <div class="basket-text"> <a href="{% url 'basket' %}">BASKET (3) </a></div>
+     <div class="basket-text"> <a href="{% url 'basket' %}">BASKET</a></div>
  </div>
 
 <section id = "basket-items">
@@ -50,7 +50,12 @@
 </section>
 <div class="action-buttons">
     <div class="go-back"><a href="{% url 'inventory-user' %}"> GO BACK </a></div>
-    <div class="reserve"> RESERVE </div>
+    <div class="reserve">
+        <form action="{% url 'reserve-all-items' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">RESERVE</button>
+    </form>
+    </div>
 
 </div>
 <script src="{% static 'script/basket.js' %}"></script>
