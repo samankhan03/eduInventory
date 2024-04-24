@@ -74,7 +74,10 @@ def login_page(request):
 
 
 def dashboard_user(request):
-    return render(request, 'dashboard_user.html')
+    basket_items = Basket.objects.all()
+    return render(request, 'dashboard_user.html', {'basket':basket_items})
+
+
 
 
 def basket(request):
