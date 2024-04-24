@@ -9,5 +9,6 @@ urlpatterns = [
     path("basket/", views.basket, name="basket"),
     path("login/", views.login_view, name="user-login"),
     path("register/", views.register_view, name="register-view"),
-    path("add-to-basket/<int:item_id>/", views.add_item, name="add-item")
+    path("add-to-basket/<int:item_id>/", views.add_item, name="add-item"),
+    path('remove_item/<int:item_id>/', views.remove_item, name='remove_item'),
 ]

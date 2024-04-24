@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import InventoryItem, BorrowedItem, Reservation
+from .models import InventoryItem, BorrowedItem, Reservation, Basket
 
 
 @admin.register(InventoryItem)
@@ -14,6 +14,11 @@ class BorrowedItemAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(Basket)
+class BasketAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(Reservation)
-class Reservation(admin.ModelAdmin):
+class ReservationAdmin(admin.ModelAdmin):
     pass
