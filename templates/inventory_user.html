@@ -105,7 +105,7 @@
                         <form class="add-to-basket-form" data-item-id="{{ item.id }}" data-item-name="{{ item.name }}">
                             {% csrf_token %}
                             <input type="hidden" name="item-id" value="{{ item.id }}">
-                            <button type="submit">+</button>
+                            <button type="submit" class="add-to-basket-btn">+</button>
                         </form>
                     </td>
                 </tr>
