@@ -53,7 +53,7 @@
     <div class="reserve">
         <form action="{% url 'reserve-all-items' %}" method="post">
         {% csrf_token %}
-        <button type="submit">RESERVE</button>
+        <button type="submit" class="reserve-button">RESERVE</button>
     </form>
     </div>
 

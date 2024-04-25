@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from .models import *
@@ -63,8 +63,11 @@ def login_page(request):
 
 
 def dashboard_user(request):
-    basket_items = Basket.objects.all()
-    return render(request, 'dashboard_user.html', {'basket': basket_items})
+    if request.user:
+        basket_items = Basket.objects.all()
+        return render(request, 'dashboard_user.html', {'basket': basket_items})
+    else:
+        return redirect('inventory-user')
 
 
 def basket(request):
@@ -128,3 +131,7 @@ def reserve_all_items(request):
         return redirect('basket')
     else:
         return JsonResponse({'error': 'Invalid request method'})
+
+def logout_view(request):
+    logout(request)
+    return redirect('user-login')

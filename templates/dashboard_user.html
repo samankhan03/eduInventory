@@ -17,7 +17,7 @@
             </div>
             
             <div class="logout-icon">
-                <li> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </li>
+                <a href="{% url 'logout' %}"> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </a>
             </div>
         </ul>
     </nav>
@@ -37,8 +37,6 @@
     <div class="hi-header">
         <h2> Hi,  {% if request.user.username %}
             {{ request.user.username }}
-        {% else %}
-            {{ "not login" }}
         {% endif %} </h2>
         <div class="welcome"> Welcome to your dashboard! </div>
     </div>

@@ -11,4 +11,5 @@ urlpatterns = [
     path("add-to-basket/<int:item_id>/", views.add_item, name="add-item"),
     path('remove_item/<int:item_id>/', views.remove_item, name='remove_item'),
     path('reserve-all-items/', views.reserve_all_items, name='reserve-all-items'),
+    path('logout/', views.logout_view, name='logout'),
 ]
