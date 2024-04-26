@@ -85,14 +85,18 @@
                 {% for booking in historical_bookings %}
                 <div class="cards" id = myCard>
                      <div class="card-content">
-{#                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">#}
+{#                       <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">#}
                         <div class="item-name">
                              <tr class="inventory-item" data-user="{{booking.item.name }}" data-item="{{booking.item }}"></tr>
                              <td>{{booking.item.name }}</td>
                         </div> 
-                          <div class="rebook-button">
-                              <a href="{% url 'basket' %}">Rebook </a>
-                          </div>
+
+                                  <form class="rebook-form" data-item-id="{{ booking.item.id }}" data-item-name="{{ booking.item.name }}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="item-id" value="{{ booking.item.id }}">
+                                      <button type="submit" class="rebook-button">Rebook</button>
+                                    </form>
+                         
                     </div>
                     <div class="mini-page">
                             Booked on: {{ booking.reservation_date }}

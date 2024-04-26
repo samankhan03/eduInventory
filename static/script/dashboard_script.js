@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Add event listener to all add-to-basket forms
-    document.querySelectorAll('.rebook-button').forEach(function(form) {
+    document.querySelectorAll('.rebook-form').forEach(function(form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var itemName = form.getAttribute('data-item-name');
 
             console.log('Item Name:', itemName);
+            console.log('Item Id: ', itemId);
 
             var formData = new FormData(form);
             formData.set('quantity', 1);

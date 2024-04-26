@@ -279,11 +279,9 @@ body {
         border: 1px solid #dadada;
         cursor: pointer;
         font-size: 11px;
+        background-color: #c9c8cf;
 }
-.rebook-button a {
-    text-decoration: none;
-    color: white;
-}
+
 .rebook-button:hover {
     border: solid #949494 1px;
 }
@@ -297,3 +295,4 @@ body {
 
     width: 80%;
 }
+
