@@ -91,6 +91,7 @@ body {
     cursor: pointer;
     border-radius: 10px;
     border: 1px solid #dadada;
+    text-decoration: none;
 }
 .action-buttons .go-back a,
 .action-buttons .reserve a {
@@ -106,4 +107,23 @@ body {
 .basket-text a {
     text-decoration: none;
     color: black;
+
+}
+.remove a {
+    text-decoration: none;
+    color: #949494;
+}
+
+.reserve-button{
+    height: 100%;
+    width: 100%;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    color: #949494;
 }

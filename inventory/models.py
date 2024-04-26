@@ -35,10 +35,19 @@ class Reservation(models.Model):
         ('REJECTED', 'Rejected'),
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    inventory_item = models.ForeignKey(InventoryItem, on_delete=models.CASCADE)
+    item = models.ForeignKey(InventoryItem, on_delete=models.CASCADE)
     reservation_date = models.DateField(default=None, null=True, blank=True)
     return_date = models.DateField(default=None, null=True, blank=True)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='PENDING')
 
     class Meta:
         db_table = 'reservation'
+
+
+class Basket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    inventory_item = models.ForeignKey(InventoryItem, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
+    class Meta:
+        db_table = 'basket'

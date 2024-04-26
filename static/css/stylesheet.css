@@ -338,7 +338,7 @@ section {
 #inventory-list table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 #inventory-list th {
@@ -391,7 +391,7 @@ section {
 #inventory-list tr:hover {
     background-color: #f2f2f2;
 }
-.inv-icon, .basket-icon, .rocket-icon, .calendar-icon {
+.basket-icon {
     cursor: pointer;
     height: 30px;
     width: 30px;
@@ -402,6 +402,10 @@ section {
     margin: 10px;
 }
 
+.logout-icon:hover {
+    padding: 2px;
+     box-shadow: 2px 0px 0px #6A6677
+}
 .inv-icon{
     width: 50px;
 }
@@ -414,6 +418,7 @@ section {
     object-fit: fill;
 }
 .logout-icon {
+    padding: 2px;
     margin-top: auto;
     cursor: pointer;
 }
@@ -425,6 +430,9 @@ section {
     color: #949494;
 }
 
+.add-to-basket-btn{
+    cursor: pointer;
+}
 
 
 

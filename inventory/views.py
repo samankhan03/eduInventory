@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
+from datetime import timedelta
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-# creating views
 from .models import *
 from .forms import CreateUserForm
 
@@ -17,7 +18,7 @@ def register_view(request):
             form.save()
             messages.success(request, "Account was created for " + form.cleaned_data['username'])
 
-            return redirect('login')
+            return redirect('user-login')
 
     context = {'form': form}
     return render(request, 'register.html', context)
@@ -44,25 +45,17 @@ def login_required(args):
 
 # @login_required
 def dashboard(request):
-    user = request.user  # Retrieve authenticated user
-    user_profile = User.objects.get(user=user)  # Query user profile data from your database
+    user = request.user
+    user_profile = User.objects.get(user=user)
     context = {
         'user_profile': user_profile,
-        # Add more context data as needed
     }
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboard_user.html', context)
 
 
 def inventory_user(request):
-    # Retrieve all InventoryItem objects from the database
     inventory_items = InventoryItem.objects.all()
-
-    # Pass the inventory items to the template context
     return render(request, 'inventory_user.html', {'inventory_items': inventory_items})
-
-
-def inventory_admin(request):
-    return render(request, 'inventory_admin.html')
 
 
 def login_page(request):
@@ -70,57 +63,79 @@ def login_page(request):
 
 
 def dashboard_user(request):
-    return render(request, 'dashboard_user.html')
+    if request.user:
+        basket_items = Basket.objects.all()
+        historical_bookings = Reservation.objects.filter(user=request.user)
+        current_reservations = Reservation.objects.filter(user=request.user)
+
+        return render(request, 'dashboard_user.html', {'basket': basket_items, 'historical_bookings': historical_bookings, 'current_reservations': current_reservations})
+    else:
+        return redirect('inventory-user')
 
 
 def basket(request):
-    inventory_items = InventoryItem.objects.all()
-    return render(request, 'basket.html', {'inventory_items': inventory_items})
-
-
-def admin(request):
-    return HttpResponse('<p>hello </p>')
+    basket_items = Basket.objects.all()
+    return render(request, 'basket.html', {'basket': basket_items})
 
 
 def add_item(request, item_id):
     if request.method == 'POST':
         item_id = int(item_id)
-        # Get the user's session
-        session_key = request.session.session_key
-        if not session_key:
-            request.session.save()
-            session_key = request.session.session_key
+        basket_item = Basket.objects.filter(user=request.user, inventory_item_id=item_id).first()
 
-        # Retrieve the list of item IDs from the session or create an empty list if it doesn't exist
-        item_ids = request.session.get('basket_items', [])
-        # Add the new item ID to the list
-        if item_id not in item_ids:
-            item_ids.append(item_id)
-        # Save the updated list back to the session
-        request.session['basket_items'] = item_ids
+        if basket_item:
+            basket_item.quantity += 1
+            basket_item.save()
+        else:
+            inventory_item = get_object_or_404(InventoryItem, pk=item_id)
+            Basket.objects.create(user=request.user, inventory_item=inventory_item, quantity=1)
 
-        # Print the session data to the console for testing
-        print("Basket items:")
-        for id in item_ids:
-            item = InventoryItem.objects.get(pk=id)
-            print(f"ID: {item.id}, Name: {item.name}")
-
-        # Return a JSON response indicating success
         return JsonResponse({'message': 'Item added to basket successfully'})
     else:
-        # Return a JSON response indicating failure
         return JsonResponse({'error': 'Invalid request method'})
+
 
 def get_basket(request):
     if request.method == 'GET':
-        # Get the list of item IDs from the session
-        item_ids = request.session.get('basket_items', [])
-        # Retrieve the items from the database using the IDs
-        items = InventoryItem.objects.filter(id__in=item_ids)
-        # Create BorrowedItem instances for each item
-        for item in items:
+        borrowed_items = BorrowedItem.objects.all()
+        for item in borrowed_items:
             BorrowedItem.objects.create(user=request.user, item=item)
-        # Clear the session
         request.session['basket_items'] = []
-        # Render the basket page with the items
-        return render(request, 'basket.html', {'items': items})
+        return render(request, 'basket.html', {'items': borrowed_items})
+
+
+def remove_item(request, item_id):
+    basket_item = get_object_or_404(Basket, id=item_id)
+    basket_item.delete()
+    return redirect('basket')
+
+
+def reserve_all_items(request):
+    if request.method == 'POST':
+        basket_items = Basket.objects.filter(user=request.user)
+        for basket_item in basket_items:
+            inventory_item = basket_item.inventory_item
+            inventory_item.availability = False
+            inventory_item.save()
+            inventory_item.return_date = timezone.now() + timedelta(days=7)
+            inventory_item.save()
+            BorrowedItem.objects.create(user=request.user, item=inventory_item)
+            reservation = Reservation.objects.create(user=request.user, item=inventory_item)
+            reservation.reservation_date = timezone.now()
+            reservation.return_date = timezone.now() + timedelta(days=7)
+            reservation.save()
+            inventory_item.quantity -= basket_item.quantity
+            if inventory_item.quantity <= 0:
+                inventory_item.quantity = 0
+            inventory_item.save()
+
+            basket_item.delete()
+
+        return redirect('basket')
+    else:
+        return JsonResponse({'error': 'Invalid request method'})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('user-login')

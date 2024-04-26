@@ -12,12 +12,12 @@
 <body>
     <nav class="sidenav">
         <ul class="sidenav-list">
-            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"> <img src="{%  static 'images/purplelogo.png' %}" alt="purple-logo" width="63" height="63" > </a> </div></li>
+            <div class="logo"> <a href="{% url 'dashboard-user' %}"> <img src="{%  static 'images/purplelogo.png' %}" alt="purple-logo" width="63" height="63" > </a> </div>
             <div class="basket-icon"> 
                 <li><a href="{% url 'basket' %}"> <img src="{% static 'images/basket.png' %}" alt="basket-icon" width="53" height="53"></a> </li>
             </div>
              <div class="logout-icon">
-                <li> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </li>
+                <a href="{% url 'logout' %}"> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </a>
             </div>
         </ul>
               
@@ -87,7 +87,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in inventory_items %}
+                {% for item in inventory_items%}
                 <tr class="inventory-item" data-availability="{{ item.availability }}" data-itemtype="{{ item.item_type }}">
                     <td>{{ item.name }}</td>
                     <td>{{ item.item_type }}</td>
@@ -102,7 +102,7 @@
                         <form class="add-to-basket-form" data-item-id="{{ item.id }}" data-item-name="{{ item.name }}">
                             {% csrf_token %}
                             <input type="hidden" name="item-id" value="{{ item.id }}">
-                            <button type="submit">+</button>
+                            <button type="submit" class="add-to-basket-btn">+</button>
                         </form>
                     </td>
                 </tr>

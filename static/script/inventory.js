@@ -48,22 +48,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add event listener to all add-to-basket forms
     document.querySelectorAll('.add-to-basket-form').forEach(function(form) {
         form.addEventListener('submit', function(event) {
-            // Prevent the default form submission behavior
             event.preventDefault();
 
-            // Get the item ID from the form's data attribute
             var itemId = form.getAttribute('data-item-id');
 
-            // Get the item name from the form's data attribute
             var itemName = form.getAttribute('data-item-name');
 
-            // Log the item name to the console for debugging
             console.log('Item Name:', itemName);
 
-            // Create a new FormData object to send the form data
             var formData = new FormData(form);
+            formData.set('quantity', 1);
 
-            // Send the AJAX request to add the item to the basket
             fetch('/basket/add-to-basket/' + itemId + '/', {
                 method: 'POST',
                 body: formData,
@@ -73,15 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (response.ok) {
-                    // Optionally, display a success message to the user
+                    console.log('Item [' + itemName + '] added to basket');
                     alert('Item [' + itemName + '] added to basket');
                 } else {
-                    // Handle the error response
                     alert('Failed to add item to basket');
                 }
             })
             .catch(error => {
-                // Handle any network errors
                 alert('Network error:', error);
             });
         });

@@ -21,16 +21,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-// document.addEventListener('DOMContentLoaded', function() {
-//     var myCard = document.getElementById('myCard');
-//
-//     myCard.addEventListener('click', function() {
-//         // Your card click functionality goes here
-//         var miniPage = this.querySelector('.mini-page');
-//         if (miniPage.classList.contains('visible')) {
-//             miniPage.classList.remove('visible');
-//         } else {
-//             miniPage.classList.add('visible');
-//         }
-//     });
-// });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to all add-to-basket forms
+    document.querySelectorAll('.rebook-form').forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var itemId = form.getAttribute('data-item-id');
+
+            var itemName = form.getAttribute('data-item-name');
+
+            console.log('Item Name:', itemName);
+            console.log('Item Id: ', itemId);
+
+            var formData = new FormData(form);
+            formData.set('quantity', 1);
+
+            fetch('/basket/add-to-basket/' + itemId + '/', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Item [' + itemName + '] added to basket');
+                    alert('Item [' + itemName + '] added to basket');
+                } else {
+                    alert('Failed to add item to basket');
+                }
+            })
+            .catch(error => {
+                alert('Network error:', error);
+            });
+        });
+    });
+});
