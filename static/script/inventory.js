@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (response.ok) {
+                    console.log('Item [' + itemName + '] added to basket');
                     alert('Item [' + itemName + '] added to basket');
                 } else {
                     alert('Failed to add item to basket');

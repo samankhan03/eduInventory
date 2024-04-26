@@ -11,7 +11,7 @@
 <body>
     <nav class="sidenav">
         <ul class="sidenav-list">
-            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="{% static 'images/purplelogo.png'%}" alt="purple-logo" width="63" height="63" > </a> </div></li>
+             <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="{% static 'images/purplelogo.png'%}" alt="purple-logo" width="63" height="63" > </a> </div>
             <div class="basket-icon" >
                 <li><a href="{% url 'inventory-user' %}"> <img src="{% static 'images/basket.png'%}" alt="basket-icon" width="50" height="50"></a> </li>
             </div>
@@ -44,17 +44,17 @@
     <div class="third-block">
             <div class="cr-block"> 
                  <div class="title "> Current Reservations </div>
-                {% for basket_item in basket %}
+                {% for booking in current_reservations %}
                 <div class="cards" id = myCard>
                     <div class="card-content">
                         <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
                         <div class="item-name"> 
-                            <tr class="inventory-item" data-user="{{ basket_item.inventory_item.name }}" data-item="{{ basket_item.item }}"></tr>
-                            <td>{{ basket_item.inventory_item.name }}</td>
+                            <tr class="inventory-item" data-user="{{ booking.item.name }}" data-item="{{ booking.item }}"></tr>
+                            <td>{{ booking.item.name }}</td>
                         </div>
                     </div>
                         <div class="mini-page">
-                            Due Date:
+                            Due Date:  {{ booking.return_date }}
                         </div>
                 </div>
                  {% endfor %}
@@ -82,20 +82,20 @@
             </div>
             <div class="hb-block" > 
                 <div class="title"> Historical Bookings </div>
-                {% for basket_item in basket %}
+                {% for booking in historical_bookings %}
                 <div class="cards" id = myCard>
                      <div class="card-content">
-                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">
+{#                        <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">#}
                         <div class="item-name">
-                             <tr class="inventory-item" data-user="{{ basket_item.inventory_item.name }}" data-item="{{ basket_item.item }}"></tr>
-                             <td>{{ basket_item.inventory_item.name }}</td>
+                             <tr class="inventory-item" data-user="{{booking.item.name }}" data-item="{{booking.item }}"></tr>
+                             <td>{{booking.item.name }}</td>
                         </div> 
                           <div class="rebook-button">
                               <a href="{% url 'basket' %}">Rebook </a>
                           </div>
                     </div>
                     <div class="mini-page">
-                            Booked on:
+                            Booked on: {{ booking.reservation_date }}
                             
                     </div>
                 </div>

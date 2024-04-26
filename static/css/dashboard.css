@@ -16,17 +16,19 @@ body {
     justify-content: center;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 }
 .sidenav-list{
+
     position: relative;
-    right: 7px;
     padding:0;
     margin-top: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
+
 
 .second-block {
     /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
@@ -35,7 +37,7 @@ body {
     background-color: #bdc0d2;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
     height: 100vh; /* Make sidebar full height */
-    width: 250px; /* Adjust width as needed */
+    width: 270px; /* Adjust width as needed */
     position: fixed;
     top: 0;
     left: 50px;
@@ -120,7 +122,7 @@ body {
 .guy img{
     position: relative;
     bottom:-380px ;
-    right: 50px;
+    right: 33px;
     display: flex;
     flex-direction: column;
     z-index: 1;
@@ -135,6 +137,7 @@ body {
 }
 
 .logout-icon {
+    padding: 5px;
     margin-top: auto;
 }
 
@@ -231,10 +234,10 @@ body {
    border: solid white 1.5px
 }
 
-.inv-icon, .basket-icon, .rocket-icon, .calendar-icon {
+.basket-icon {
     cursor: pointer;
     height: 30px;
-    width: 30px;
+    width: 100%;
     display: flex;
     justify-content: center;
     display: flex;
@@ -242,13 +245,20 @@ body {
     margin: 10px;
 }
 
-.inv-icon{
-    width: 50px;
-}
-.sidenav-list li:hover {
-    box-shadow: 33px 0px 0px #6A6677;
-}
 
+/*.sidenav-list li:hover {*/
+/*    border: solid green 1px;*/
+/*    box-shadow: 2px 0px 0px #6A6677;*/
+/*}*/
+
+.sidenav-list li:hover{
+    padding: 5px;
+    box-shadow: 2px 0px 0px #6A6677;
+}
+.logout-icon:hover{
+    padding:5px;
+    box-shadow: 2px 0px 0px #6A6677;
+}
 
 .inv-icon img {
     width: 100%;

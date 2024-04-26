@@ -18,7 +18,7 @@ def register_view(request):
             form.save()
             messages.success(request, "Account was created for " + form.cleaned_data['username'])
 
-            return redirect('login')
+            return redirect('user-login')
 
     context = {'form': form}
     return render(request, 'register.html', context)
@@ -50,7 +50,7 @@ def dashboard(request):
     context = {
         'user_profile': user_profile,
     }
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboard_user.html', context)
 
 
 def inventory_user(request):
@@ -65,7 +65,10 @@ def login_page(request):
 def dashboard_user(request):
     if request.user:
         basket_items = Basket.objects.all()
-        return render(request, 'dashboard_user.html', {'basket': basket_items})
+        historical_bookings = Reservation.objects.filter(user=request.user)
+        current_reservations = Reservation.objects.filter(user=request.user)
+
+        return render(request, 'dashboard_user.html', {'basket': basket_items, 'historical_bookings': historical_bookings, 'current_reservations': current_reservations})
     else:
         return redirect('inventory-user')
 
@@ -131,6 +134,7 @@ def reserve_all_items(request):
         return redirect('basket')
     else:
         return JsonResponse({'error': 'Invalid request method'})
+
 
 def logout_view(request):
     logout(request)
