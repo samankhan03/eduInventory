@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="{% static 'css/dashboard_admin.css' %}">
+    
+</head>
+<body>
+    <nav class="sidenav">
+        <ul class="sidenav-list">
+            <li> <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="../static/images/purplelogo.png" alt="purple-logo" width="63" height="63" > </a></li>
+            <div class="basket-icon" >
+                <li><a href="{% url 'inventory-user' %}"> <img src="../static/images/basket.png" alt="basket-icon" width="50" height="50"></a> </li>
+            </div>
+            
+            <div class="logout-icon">
+                <li> <img src="../static/images/logout.png" alt="logout-icon" width="50" height="50"> </li>
+            </div>
+        </ul>
+    </nav>
+    <div class="second-block">
+            <div class="profile-icon">
+                <div class="pfp-icon">
+{#                    <img src="../static/images/miffypfp.png" alt="pfp-icon" height="120" width="120">#}
+{#                      <img src="../static/images/pfpperson.png" alt="pfp-icon" height="80" width="80">#}
+                    <img src="../static/images/cat.png" alt="pfp-icon" height="55" width="60">
+{#                    <img src="../static/images/animal2.png" alt="pfp-icon" height="55" width="60">#}
+                </div>
+            </div>
+        
+          <div class="girl">
+                     <img src="../static/images/green-girl.png" alt="kid" height="300" width="340">
+          </div>
+
+
+    </div>
+    <div class="hi-header">
+        <h2> Hi,  {% if request.user.username %}
+            {{ request.user.username }}
+        {% endif %} </h2>
+        <div class="welcome"> Welcome to your dashboard! </div>
+    </div>
+
+    <div class="third-block">
+            <div class="cr-block"> 
+                 <div class="title "> Approve Sign-ups </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        username
+                        <div class="button-container">
+                            <button class="approve">Approve</button>
+                            <button class="deny">Deny</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        username
+                        <div class="button-container">
+                            <button class="approve">Approve</button>
+                            <button class="deny">Deny</button>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        username
+                        <div class="button-container">
+                            <button class="approve">Approve</button>
+                            <button class="deny">Deny</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        username
+                        <div class="button-container">
+                            <button class="approve">Approve</button>
+                            <button class="deny">Deny</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        username
+                        <div class="button-container">
+                            <button class="approve">Approve</button>
+                            <button class="deny">Deny</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="hb-block" > 
+                <div class="title"> Generate Reports </div>
+                <div class="cards" id = myCard>
+                     <div class="card-content">
+                        <img src="../static/images/report.png" alt="headset-icon" height="60" width="60">
+                        current inventory status
+                         <button class="report"><a href="{% url 'inventory_report' %}">Generate</a></button>
+                    </div>
+                </div>
+
+                <div class="cards" id = myCard>
+                     <div class="card-content">
+                        <img src="../static/images/report.png" alt="headset-icon" height="60" width="60">
+                        equipment usage history
+                        <button class="report"><a href="{% url 'usage_history_report' %}">Generate</a></button>
+                    </div>
+                </div>
+
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/report.png" alt="headset-icon" height="60" width="60">
+                        warranty
+                        <button class="report">Generate</button>
+                    </div>
+                </div>
+
+                <div class="cards" id = myCard>
+                    <div class="card-content">
+                        <img src="../static/images/report.png" alt="headset-icon" height="60" width="60">
+                        overdue equipment
+                        <button class="report"><a href="{% url 'overdue_items_report' %}">Generate</a></button>
+                    </div>
+                </div>
+             
+    </div>
+</body>
+</html>

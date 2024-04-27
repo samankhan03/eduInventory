@@ -1,0 +1,256 @@
+body {
+    font-family: Arial, SansSerif;
+    margin-left: 40px;
+    margin-top:3px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.sidenav {
+    background-color: white; /* Background color of the sidebar */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
+    height: 100vh; /* Make sidebar full height */
+    width: 63px; /* Adjust width as needed */
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.sidenav-list{
+    position: relative;
+    right: 7px;
+    padding:0;
+    margin-top: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-block {
+    /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
+    /* background-color: #cdc4d3;*/
+    /* background-color: #c6bbcc;*/
+    background-color: #bdc0d2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
+    height: 100vh; /* Make sidebar full height */
+    width: 350px; /* Adjust width as needed */
+    position: fixed;
+    top: 0;
+    left: 50px;
+    z-index: 1;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.third-block {
+    /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
+    /* background-color: #cdc4d3;*/
+    /* background-color: #c6bbcc;*/
+    background-color: white;
+    height: 100vh; /* Make sidebar full height */
+    /*width: 300px; !* Adjust width as needed *!*/
+    display: flex;
+    flex-direction: row;
+    margin-top: 53px;
+    margin-left: 500px;
+    margin-right: 200px;
+    z-index: 1;
+    padding-top: 50px;
+    justify-content: space-between;
+}
+.hi-header {
+
+    margin-top: 0;
+    margin-left:450px;
+}
+.hi-header h2 {
+    margin-bottom: 20px;
+    margin-top: 33px;
+    font-family: monospace;
+    font-size: 23px;
+
+}
+.welcome {
+    color: #949494;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    font-family: monospace;
+    font-size: 10px;
+
+}
+.profile-icon {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    background-color: #6A6677; /* You can adjust the color as needed */
+    margin: 0 auto 20px; /* Centers the icon horizontally and adds margin at the bottom */
+    position: relative; /* Position the container */
+    overflow: hidden;
+}
+.pfp-icon {
+    position: absolute; /* Position the image absolutely */
+    top: 50%; /* Align the top of the image to the middle of the container */
+    left: 50%; /* Align the left side of the image to the middle of the container */
+    transform: translate(-50%, -50%); /* Translate the image to the center */
+    border-radius: 50%;
+
+}
+
+.pfp-icon img{
+    object-fit: contain;
+    position: relative;
+    left: -2px;
+    top: 2px;
+
+}
+
+.girl {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    margin-top: 50px; /* Adjust margin-top as needed */
+}
+
+.girl img {
+    position: relative;
+    bottom: -300px; /* Increase this value to move the picture lower down */
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.title {
+    font-family: monospace;
+    font-size: 15px;
+    position: relative;
+    top: -30px;
+}
+
+.logout-icon {
+    margin-top: auto;
+}
+
+.cr-block, .hb-block {
+    height: 100%;
+    width: 45%;
+    background-color: #6A6677;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cards {
+    position: relative;
+    width: 90%;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: #c9c8cf;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.card-content {
+    display: flex;
+    align-content: center;
+    color: white;
+    justify-content: left;
+    font-family: monospace;
+    margin-top: 14px;
+    position: relative;
+}
+
+.card-content img {
+    margin-top: -14px;
+    width: 30px; /* Adjust the size of the icon */
+    height: 30px; /* Adjust the size of the icon */
+    margin-right: 33px; /* Add spacing between icon and item name */
+    border-radius: 50px; /* Make the border round */
+    padding: 5px;
+}
+
+.cards:hover {
+    /*border: solid #89d770 3px ;*/
+    border: solid white 3px;
+}
+
+.card-content button{
+    color: white;
+    position: relative;
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+    cursor: pointer;
+    font-size: 11px;
+    background-color: #c9c8cf;
+    margin-left: auto; /* Push the container (and its contents) to the right */
+    display: flex; /* Use flexbox to control button positioning */
+}
+
+.report{
+    color: white;
+}
+
+.report a:hover, report:hover {
+    color: black;
+    border-color: black;
+}
+
+.report:hover{
+    border-color: black;
+}
+
+.card-content a{
+    text-decoration: none;
+    color: white;
+}
+
+.inv-icon, .basket-icon, .rocket-icon, .calendar-icon {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.sidenav-list li:hover {
+    box-shadow: 33px 0px 0px #6A6677;
+}
+
+.button-container {
+    margin-left: auto; /* Push the container (and its contents) to the right */
+    display: flex; /* Use flexbox to control button positioning */
+}
+
+.deny, .approve {
+    margin-left: 75px; /* Adjust the margin as needed */
+    padding: 5px 5px; /* Adjust padding as needed */
+    margin-left: auto;
+}
+
+.approve {
+    margin-right: 5px; /* Add margin between buttons */
+}
+
+.approve:hover {
+    color: #7cb46b;
+    text-decoration: none;
+    border-color: #7cb46b;
+}
+
+.deny:hover {
+    color: #F5554A;
+    text-decoration: none;
+    border-color: #F5554A;
+}

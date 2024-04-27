@@ -12,7 +12,7 @@
 </head>
 <body>
   <div class="nav-bar">
-    <a href="https://google.com" id="#login">Login</a>
+    <a href="{% url 'login' %}" id="#login">Login</a>
     <img src="../../static/images/logo.png" alt="edustore logo">
   </div>
 
@@ -32,6 +32,13 @@
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
                             {{form.username}}
+						</div>
+
+                        <div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+							</div>
+							<input type="email" name="email">
 						</div>
 
 						<div class="input-group mb-2">
@@ -57,7 +64,7 @@
 
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Already have an account? <a href="{% url 'user-login' %}" class="ml-2">Login</a>
+						Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
 					</div>
 				</div>
 			</div>
@@ -71,8 +78,9 @@
 		//Query All input fields
 		var form_fields = document.getElementsByTagName('input')
 		form_fields[1].placeholder='Username...';
-		form_fields[2].placeholder='Enter password...';
-		form_fields[3].placeholder='Re-enter Password...';
+        form_fields[2].placeholder='Enter your email...';
+		form_fields[3].placeholder='Enter password...';
+		form_fields[4].placeholder='Re-enter Password...';
 
 		for (var field in form_fields){
 			form_fields[field].className += ' form-control'

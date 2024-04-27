@@ -12,4 +12,7 @@ urlpatterns = [
     path('remove_item/<int:item_id>/', views.remove_item, name='remove_item'),
     path('reserve-all-items/', views.reserve_all_items, name='reserve-all-items'),
     path('logout/', views.logout_view, name='logout'),
+    path('inventory_report/', views.generate_inventory_pdf, name='inventory_report'),
+    path('usage_history_report/', views.generate_usage_history_pdf, name='usage_history_report'),
+    path('overdue_items_report/', views.generate_overdue_items_pdf, name='overdue_items_report'),
 ]
