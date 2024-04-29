@@ -1,6 +1,7 @@
 import datetime
 from datetime import timedelta
 
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
@@ -327,3 +328,6 @@ def generate_overdue_items_report():
 
 def main_page(request):
     return render(request, 'mainpage.html')
+
+
+

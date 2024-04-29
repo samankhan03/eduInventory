@@ -1,10 +1,10 @@
 from django.urls import path
+from django.contrib import admin
 
 from . import views
-
 urlpatterns = [
-    path("", views.inventory_user, name="inventory-user"),
-    path("user/", views.dashboard_user, name="dashboard-user"),
+    path("inventory/", views.inventory_user, name="inventory-user"),
+    path("dashboard/", views.dashboard_user, name="dashboard-user"),
     path("basket/", views.basket, name="basket"),
     path("login/", views.login_view, name="user-login"),
     path("register/", views.register_view, name="register-view"),
@@ -16,5 +16,7 @@ urlpatterns = [
     path('usage_history_report/', views.generate_usage_history_pdf, name='usage_history_report'),
     path('overdue_items_report/', views.generate_overdue_items_pdf, name='overdue_items_report'),
     path('admin-login/', views.generate_overdue_items_pdf, name='overdue_items_report'),
-    path('main-page/', views.main_page, name='main-page'),
+    path("", views.main_page, name='main-page'),
+    path("dashboard-admin/", views.admin_dashboard, name='dashboard-admin'),
 ]
+

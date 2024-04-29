@@ -1,0 +1,11 @@
+{% extends "admin/base_site.html" %}
+
+{% block branding %}
+    <!-- Default branding content -->
+    {{ block.super }}
+
+    <!-- Add your custom button -->
+    <div style="align-self: center; font-size: large">
+        <a href="{% url 'dashboard-admin' %}" class="button">DASHBOARD</a>
+    </div>
+{% endblock %}

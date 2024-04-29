@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const reserveButton = document.querySelector('.reserve');
     reserveButton.addEventListener('click', function() {
          const formData = new FormData();
-        fetch(`/basket/reserve-all-items/`, {
+        fetch(`/reserve-all-items/`, {
             method: 'POST',
             body: formData,
             headers: {

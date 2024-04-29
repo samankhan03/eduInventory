@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var formData = new FormData(form);
             formData.set('quantity', 1);
 
-            fetch('/basket/add-to-basket/' + itemId + '/', {
+            fetch('/add-to-basket/' + itemId + '/', {
                 method: 'POST',
                 body: formData,
                 headers: {

@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var formData = new FormData(form);
             formData.set('quantity', 1);
 
-            fetch('/basket/add-to-basket/' + itemId + '/', {
+            fetch('/add-to-basket/' + itemId + '/', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -79,4 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+})
+
+
+document.querySelectorAll('.add-to-basket-btn').forEach(function(button) {
+    if (button.hasAttribute('disabled')) {
+        button.style.opacity = '0.3';
+        button.style.cursor = 'not-allowed'
+    }
 });
