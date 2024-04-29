@@ -47,7 +47,7 @@
                 {% for booking in current_reservations %}
                 <div class="cards" id = myCard>
                     <div class="card-content">
-                        <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
+                        <img src="{% static 'images/calendar.png'%}" alt="laptop-icon">
                         <div class="item-name"> 
                             <tr class="inventory-item" data-user="{{ booking.item.name }}" data-item="{{ booking.item }}"></tr>
                             <td>{{ booking.item.name }}</td>
@@ -64,7 +64,7 @@
                 {% for basket_item in basket %}
                 <div class="cards">
                     <div class="card-content">
-                        <img src="{% static 'images/macmini.png'%}" alt="laptop-icon" height="90" width="90">
+                        <img src="{% static 'images/dashbasket.png'%}" alt="laptop-icon" height="90" width="90">
                                <div class="item-name">
                                       
                                           <tr class="inventory-item" data-user="{{ basket_item.inventory_item.name }}" data-item="{{ basket_item.item }}"></tr>
@@ -85,7 +85,7 @@
                 {% for booking in historical_bookings %}
                 <div class="cards" id = myCard>
                      <div class="card-content">
-{#                       <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">#}
+                       <img src="{% static 'images/clock2.png'%}" alt="headset-icon" height="10" width=10">
                         <div class="item-name">
                              <tr class="inventory-item" data-user="{{booking.item.name }}" data-item="{{booking.item }}"></tr>
                              <td>{{booking.item.name }}</td>
