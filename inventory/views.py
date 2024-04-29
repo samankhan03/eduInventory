@@ -1,7 +1,7 @@
 import datetime
 from datetime import timedelta
+from io import BytesIO
 
-from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
@@ -67,7 +67,7 @@ def login_page(request):
 
 
 def dashboard_user(request):
-    if not request.user.is_anonymous:
+    if request.user:
         basket_items = Basket.objects.all()
         historical_bookings = Reservation.objects.filter(user=request.user)
         current_reservations = Reservation.objects.filter(user=request.user)
@@ -85,21 +85,18 @@ def basket(request):
 
 
 def add_item(request, item_id):
-    if not request.user.is_anonymous:
-        if request.method == 'POST':
-            item_id = int(item_id)
-            basket_item = Basket.objects.filter(user=request.user, inventory_item_id=item_id).first()
+    if request.method == 'POST':
+        item_id = int(item_id)
+        basket_item = Basket.objects.filter(user=request.user, inventory_item_id=item_id).first()
 
-            if basket_item:
-                basket_item.quantity += 1
-                basket_item.save()
-            else:
-                inventory_item = get_object_or_404(InventoryItem, pk=item_id)
-                Basket.objects.create(user=request.user, inventory_item=inventory_item, quantity=1)
-
-            return JsonResponse({'message': 'Item added to basket successfully'})
+        if basket_item:
+            basket_item.quantity += 1
+            basket_item.save()
         else:
-            return JsonResponse({'error': 'Invalid request method'})
+            inventory_item = get_object_or_404(InventoryItem, pk=item_id)
+            Basket.objects.create(user=request.user, inventory_item=inventory_item, quantity=1)
+
+        return JsonResponse({'message': 'Item added to basket successfully'})
     else:
         return JsonResponse({'error': 'Invalid request method'})
 
@@ -160,28 +157,30 @@ def generate_inventory_pdf(request):
 
 
 def generate_inventory_report():
-    from io import BytesIO
-    from inventory.models import InventoryItem
-    from reportlab.pdfgen import canvas
-
     try:
         buffer = BytesIO()
         p = canvas.Canvas(buffer)
 
-        # Creating the PDF document
+        # Fetch all inventory items
         items = InventoryItem.objects.all()
+
+        # Calculate total inventory count of available items
+        total_available_items = sum(item.quantity for item in items if item.availability)
+
+        # Draw the title of the report
         p.drawString(100, 800, "Inventory Report:")
 
-        # Define the starting positions for each column
-        x_positions = [100, 200, 300, 400, 500]  # Adjust as needed
+        # Add total inventory count under the title
+        p.drawString(100, 780, f"Total inventory count: {total_available_items}")
+
+        # Defining the starting positions for each column
+        x_positions = [100, 100, 100, 100, 100]
         y = 750
 
         # Define the column width and height
         row_height = 15
 
-        # Set the font size to be smaller
-
-
+        # Draw each inventory item
         for item in items:
             p.setFont("Helvetica", 8)  # Adjust the font name and size as needed
             # Draw item details in columns
@@ -227,8 +226,8 @@ def generate_usage_history_report():
         # Creating the PDF document
         p.drawString(100, 800, "Equipment Usage History Report:")
 
-        # Define the starting positions for each column
-        x_positions = [100, 200, 400]  # Adjust as needed
+        # Defining the starting positions for each column
+        x_positions = [100, 100, 100]
         y = 750
 
         # Define the column width and height
@@ -277,41 +276,54 @@ def generate_overdue_items_pdf(request):
     return response
 def generate_overdue_items_report():
     from io import BytesIO
-    from inventory.models import InventoryItem
+    from .models import Reservation
     from reportlab.pdfgen import canvas
 
     try:
         buffer = BytesIO()
         p = canvas.Canvas(buffer)
 
-        # Define the starting positions for each column
-        x_positions = [100, 200, 300, 400, 500]  # Adjust as needed
-        row_height = 15
+        # Fetch all overdue items
+        overdue_reservations = Reservation.objects.filter(return_date=datetime.date.today())
 
-        # Filter overdue items
-        overdue_items = InventoryItem.objects.filter(return_date__lt=datetime.date.today())
-
-        if overdue_items:
+        if overdue_reservations:
+            # Draw the title of the report
             p.drawString(100, 800, "Overdue Items Report:")
 
-            for item in overdue_items:
-                # Set the font size to be smaller
+            # Defining the starting positions for each column
+            x_positions = [100, 100, 100, 100, 100]
+            y = 750
+
+            # Define the column width and height
+            row_height = 15
+
+            total_overdue_count = 0  # Initialize total count of overdue items
+
+            # Draw each overdue item
+            for reservation in overdue_reservations:
+                item = reservation.item
+                total_overdue_count += 1  # Increment total count for each item
+
                 p.setFont("Helvetica", 8)  # Adjust the font name and size as needed
 
                 # Draw item details in columns
-                y = 750  # Reset y coordinate for each item
                 for attribute, position in zip(['name', 'item_type', 'status', 'quantity', 'availability'], x_positions):
                     p.drawString(position, y, f"{attribute.capitalize()}: {getattr(item, attribute)}")
                     y -= row_height
 
                 # Add a horizontal line between items
-                for i in range(len(x_positions) - 1):  # Draw lines between columns
-                    p.line(x_positions[i], y + 5, x_positions[i + 1], y + 5)
+                p.line(x_positions[0], y + 5, x_positions[-1], y + 5)
+                y -= 15  # Adjust spacing between items
 
                 # Check if the next item will fit in the remaining space
                 if y < 50:
                     # Add a new page
                     p.showPage()
+                    # Reset y position for the new page
+                    y = 800
+
+            # Draw total count of overdue items
+            p.drawString(100, 780, f"Total Overdue Items: {total_overdue_count}")
 
         else:
             p.drawString(100, 800, "No Overdue Items Found.")
@@ -323,7 +335,7 @@ def generate_overdue_items_report():
 
     except Exception as e:
         print(f"Error generating overdue items report: {e}")
-        return None
+        return BytesIO()  # Return an empty BytesIO buffer in case of error
 
 
 def main_page(request):

@@ -20,18 +20,15 @@ body {
 }
 .sidenav-list{
     position: relative;
-    right: 7px;
     padding:0;
     margin-top: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .second-block {
-    /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
-    /* background-color: #cdc4d3;*/
-    /* background-color: #c6bbcc;*/
     background-color: #bdc0d2;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
     height: 100vh; /* Make sidebar full height */
@@ -119,10 +116,11 @@ body {
 
 .girl img {
     position: relative;
-    bottom: -300px; /* Increase this value to move the picture lower down */
+    bottom: -450px; /* Increase this value to move the picture lower down */
     display: flex;
     flex-direction: column;
     z-index: 1;
+    left: 10px;
 }
 
 .title {
@@ -133,6 +131,7 @@ body {
 }
 
 .logout-icon {
+    padding: 5px;
     margin-top: auto;
 }
 
@@ -213,21 +212,25 @@ body {
     color: white;
 }
 
-.inv-icon, .basket-icon, .rocket-icon, .calendar-icon {
+.basket-icon {
     cursor: pointer;
     height: 30px;
-    width: 30px;
+    width: 100%;
     display: flex;
     justify-content: center;
-    display: flex;
     align-items: center;
     margin: 10px;
 }
 
 .sidenav-list li:hover {
-    box-shadow: 33px 0px 0px #6A6677;
+    padding: 5px;
+    box-shadow: 2px 0px 0px #6A6677;
 }
 
+.logout-icon:hover {
+    padding: 5px;
+    box-shadow: 2px 0px 0px #6A6677;
+}
 .button-container {
     margin-left: auto; /* Push the container (and its contents) to the right */
     display: flex; /* Use flexbox to control button positioning */
@@ -254,3 +257,5 @@ body {
     text-decoration: none;
     border-color: #F5554A;
 }
+
+
