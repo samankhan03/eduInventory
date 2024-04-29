@@ -23,9 +23,8 @@ urlpatterns = [
     path("inventory/", include("inventory.urls")),
     path("admin/", admin.site.urls),
     path("dashboard/", include("inventory.urls")),
-    path("login", include("inventory.urls")),
-    path("register", include("inventory.urls")),
+    path("login/", include("inventory.urls")),
+    path("register/", include("inventory.urls")),
     path("basket/", include("inventory.urls")),
-    #path('report/', include("inventory.urls"))
     path("admin_dashboard/", views.admin_dashboard, name='admin_dashboard'),
 ]

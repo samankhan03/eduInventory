@@ -1,0 +1,95 @@
+body {
+    font-family: Inter;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .nav-bar {
+      background-color: #2B263D;
+      overflow: hidden;
+    }
+    
+    /* Style the links inside the navigation bar */
+    .nav-bar a {
+      float: right;
+      color: #f2f2f2;
+      text-align: right;
+      padding: 25px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      margin-top: 15pt;
+      margin-right: 10pt;
+    }
+    
+    /* Change the color of links on hover */
+    .nav-bar a:hover {
+      background-color: #ddd;
+      color: black;
+      border-radius: 10pt;
+    }
+
+    .nav-bar img {
+        width:160pt;
+        height: 80pt;
+        margin-left: 10pt;
+      }
+
+    .main-text {
+        color: white;
+        font-size: 48px; /* Adjust as needed */
+        position: relative;
+        height: 300px;
+  }
+
+    .text {
+        position: absolute;
+        top: 75%;
+        left: 5%; /* Adjust this value to move the text lower */
+        transform: translateY(-70%); /* Adjust this value to fine-tune the vertical positioning */
+        text-align: center; /* Center align the text */
+    }
+
+    .button-container {
+        position: absolute;
+        top: 60%;
+        left: 5%;
+        margin-top: 20px; /* Adjust the top margin as needed */
+        text-align: center; /* Center align the button container */
+        width: 300px; /* Adjust the width of the button container */
+        height: 50px; /* Adjust the height of the button container */
+        background-color: purple; /* Fill color */
+        border-radius: 25px; /* Half of the container's height for fully rounded corners */
+        line-height: 50px; /* Center the text vertically */
+        color: white;
+        font-size: 24px; /* Adjust as needed */
+    }
+
+    .button-container a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .button-container:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+  .images {
+      position: absolute;
+  }
+  
+  .backpack {
+      top: 70%; /* Adjusted position for first image */
+      left: 80%;
+  }
+  
+  .laptop {
+      top: 20%; /* Adjusted position for second image */
+      left: 75%;
+  }
+  
+  .girl {
+      top: 40%; /* Adjusted position for third image */
+      left: 40%;
+  }
+

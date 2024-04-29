@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -12,13 +12,13 @@
 </head>
 <body>
   <div class="nav-bar">
-    <a href="{% url 'login' %}" id="#login">Login</a>
-    <img src="../../static/images/logo.png" alt="edustore logo">
+    <a href="{% url 'user-login' %}" id="#login">Login</a>
+    <img src="{% static 'images/logo.png' %}" alt="edustore logo">
   </div>
 
 	<div class="container h-100">
 		<div class="d-flex justify-content: left h-100">
-            <img src="../../static/images/girl.png" alt="girl">
+            <img src="{% static 'images/girl.png' %}" alt="girl">
 			<div class="user_card">
 				<div class="d-flex justify-content: left">
 					<h3 id="form-title">REGISTER</h3>
@@ -64,7 +64,7 @@
 
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
+						Already have an account? <a href="{% url 'user-login' %}" class="ml-2">Login</a>
 					</div>
 				</div>
 			</div>

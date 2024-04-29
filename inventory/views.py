@@ -66,7 +66,7 @@ def login_page(request):
 
 
 def dashboard_user(request):
-    if request.user:
+    if not request.user.is_anonymous:
         basket_items = Basket.objects.all()
         historical_bookings = Reservation.objects.filter(user=request.user)
         current_reservations = Reservation.objects.filter(user=request.user)
@@ -84,18 +84,21 @@ def basket(request):
 
 
 def add_item(request, item_id):
-    if request.method == 'POST':
-        item_id = int(item_id)
-        basket_item = Basket.objects.filter(user=request.user, inventory_item_id=item_id).first()
+    if not request.user.is_anonymous:
+        if request.method == 'POST':
+            item_id = int(item_id)
+            basket_item = Basket.objects.filter(user=request.user, inventory_item_id=item_id).first()
 
-        if basket_item:
-            basket_item.quantity += 1
-            basket_item.save()
+            if basket_item:
+                basket_item.quantity += 1
+                basket_item.save()
+            else:
+                inventory_item = get_object_or_404(InventoryItem, pk=item_id)
+                Basket.objects.create(user=request.user, inventory_item=inventory_item, quantity=1)
+
+            return JsonResponse({'message': 'Item added to basket successfully'})
         else:
-            inventory_item = get_object_or_404(InventoryItem, pk=item_id)
-            Basket.objects.create(user=request.user, inventory_item=inventory_item, quantity=1)
-
-        return JsonResponse({'message': 'Item added to basket successfully'})
+            return JsonResponse({'error': 'Invalid request method'})
     else:
         return JsonResponse({'error': 'Invalid request method'})
 
@@ -322,3 +325,5 @@ def generate_overdue_items_report():
         return None
 
 
+def main_page(request):
+    return render(request, 'mainpage.html')

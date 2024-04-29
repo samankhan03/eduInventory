@@ -1,0 +1,34 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/maincss.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalized.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Main Page</title>
+
+</head>
+
+<body style="background-color: #393251;">
+    <div class="nav-bar">
+        <a href="{% url 'user-login' %}" class="login">Login</a>
+         <a href="{% url 'register-view' %}" class="register">Register</a>
+        <img src="{% static 'images/logo.png' %}" alt="logo">
+    </div>
+
+    <div class="main-text">
+        <p class="text"><b>Find, Reserve & Borrow<br>any item you'd like!</b></p>
+    </div>
+
+    <div class="button-container">
+        <a href="{% url 'user-login' %}" class="register"><b>Get Started!</b></a>
+    </div>
+
+
+    <div class="images backpack"><img src="{%  static 'images/backpack.png' %}" alt="backpack"></div>
+    <div class="images laptop"><img src="{%  static 'images/purple_laptop.png' %}" alt="laptop"></div>
+    <div class="images girl"><img src="{%  static 'images/girl.png' %}" alt="girl"></div>
+</body>
+</html>

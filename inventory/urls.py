@@ -15,4 +15,6 @@ urlpatterns = [
     path('inventory_report/', views.generate_inventory_pdf, name='inventory_report'),
     path('usage_history_report/', views.generate_usage_history_pdf, name='usage_history_report'),
     path('overdue_items_report/', views.generate_overdue_items_pdf, name='overdue_items_report'),
+    path('admin-login/', views.generate_overdue_items_pdf, name='overdue_items_report'),
+    path('main-page/', views.main_page, name='main-page'),
 ]
