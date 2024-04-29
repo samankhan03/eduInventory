@@ -11,28 +11,25 @@
 <body>
     <nav class="sidenav">
         <ul class="sidenav-list">
-            <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="../static/images/purplelogo.png" alt="purple-logo" width="63" height="63" > </a> </div>
+            <div class="logo"> <a href="{% url 'dashboard-user' %}"><img src="{% static 'images/purplelogo.png' %}" alt="purple-logo" width="63" height="63" > </a> </div>
             <div class="basket-icon" >
-                <li><a href="{% url 'inventory-user' %}"> <img src="../static/images/basket.png" alt="basket-icon" width="50" height="50"></a> </li>
+                <li><a href="{% url 'inventory-user' %}"> <img src="{% static 'images/basket.png' %}" alt="basket-icon" width="50" height="50"></a> </li>
             </div>
             
             <div class="logout-icon">
-                <li> <img src="../static/images/logout.png" alt="logout-icon" width="50" height="50"> </li>
+                <li> <img src="{% static 'images/logout.png' %}" alt="logout-icon" width="50" height="50"> </li>
             </div>
         </ul>
     </nav>
     <div class="second-block">
             <div class="profile-icon">
                 <div class="pfp-icon">
-{#                    <img src="../static/images/miffypfp.png" alt="pfp-icon" height="120" width="120">#}
-{#                      <img src="../static/images/pfpperson.png" alt="pfp-icon" height="80" width="80">#}
-                    <img src="../static/images/cat.png" alt="pfp-icon" height="55" width="60">
-{#                    <img src="../static/images/animal2.png" alt="pfp-icon" height="55" width="60">#}
+                    <img src="{% static 'images/cat.png' %}" alt="pfp-icon" height="55" width="60">
                 </div>
             </div>
         
           <div class="girl">
-                     <img src="../static/images/green-girl.png" alt="kid" height="300" width="340">
+                     <img src="{% static 'images/green-girl.png' %}" alt="kid" height="300" width="340">
           </div>
 
 
@@ -49,7 +46,7 @@
                  <div class="title "> Approve Sign-ups </div>
                 <div class="cards" id = myCard1>
                     <div class="card-content">
-                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        <img src="{% static 'images/user.png' %}" alt="laptop-icon" height="60" width="60">
                         username1
                         <div class="button-container">
                             <button class="approve" onclick="hideCard('myCard1', 'approve')">Approve</button>
@@ -60,7 +57,7 @@
                 </div>
                 <div class="cards" id = myCard2>
                     <div class="card-content">
-                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        <img src="{% static 'images/user.png' %}" alt="laptop-icon" height="60" width="60">
                         username2
                         <div class="button-container">
                             <button class="approve" onclick="hideCard('myCard2', 'approve')">Approve</button>
@@ -71,7 +68,7 @@
 
                 <div class="cards" id = myCard3>
                     <div class="card-content">
-                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        <img src="{% static 'images/user.png' %}" alt="laptop-icon" height="60" width="60">
                         username3
                         <div class="button-container">
                             <button class="approve" onclick="hideCard('myCard3', 'approve')">Approve</button>
@@ -82,7 +79,7 @@
 
                 <div class="cards" id = myCard4>
                     <div class="card-content">
-                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        <img src="{% static 'images/user.png' %}" alt="laptop-icon" height="60" width="60">
                         username4
                         <div class="button-container">
                             <button class="approve" onclick="hideCard('myCard4', 'approve')">Approve</button>
@@ -93,7 +90,7 @@
 
                 <div class="cards" id = myCard5>
                     <div class="card-content">
-                        <img src="../static/images/user.png" alt="laptop-icon" height="60" width="60">
+                        <img src="{% static 'images/user.png' %}" alt="laptop-icon" height="60" width="60">
                         username5
                         <div class="button-container">
                             <button class="approve" onclick="hideCard('myCard5', 'approve')">Approve</button>
@@ -108,7 +105,7 @@
                 <div class="title"> Generate Reports </div>
                 <div class="cards">
                      <div class="card-content">
-                        <img src="../static/images/report.png" alt="headset-icon" height="60" width="60">
+                        <img src="{% static 'images/report.png' %}" alt="headset-icon" height="60" width="60">
                         current inventory status
                          <button class="report"><a href="{% url 'inventory_report' %}">Generate</a></button>
                     </div>
@@ -116,7 +113,7 @@
 
                 <div class="cards">
                      <div class="card-content">
-                        <img src="../static/images/report.png" alt="headset-icon" height="60" width="60">
+                        <img src="{% static 'images/report.png' %}" alt="headset-icon" height="60" width="60">
                         equipment usage history
                         <button class="report"><a href="{% url 'usage_history_report' %}">Generate</a></button>
                     </div>
@@ -124,40 +121,16 @@
 
                 <div class="cards">
                     <div class="card-content">
-                        <img src="../static/images/report.png" alt="headset-icon" height="60" width="60">
+                        <img src="{% static 'images/report.png' %}" alt="headset-icon" height="60" width="60">
                         overdue equipment
                         <button class="report"><a href="{% url 'overdue_items_report' %}">Generate</a></button>
                     </div>
                 </div>
             </div>
     </div>
+<script src="{% static 'script/admin_dashboard.js' %}"></script>
 </body>
 </html>
 
-{#Function for user cards to disappear after buttons being clicked#}
-<script>
-    function hideCard(cardId, action) {
-        var card = document.getElementById(cardId);
-        if (card) {
-            card.style.display = "none";
-            var message;
-            var color;
-            if (action === "approve") {
-                message = "User has been approved";
-                color = "#7cb46b"; // Set color to green for approval
-            } else if (action === "deny") {
-                message = "User has been denied";
-                color = "#F5554A"; // Set color to red for denial
-            }
-            var messageElement = document.createElement("div");
-            messageElement.innerHTML = message;
-            messageElement.style.color = color; // Apply color style
-            card.parentNode.insertBefore(messageElement, card.nextSibling);
 
-            setTimeout(function() {
-                messageElement.remove();
-            }, 3000); // Timer before message disappears
-        }
-    }
-</script>
 
