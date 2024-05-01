@@ -43,11 +43,6 @@ def login_view(request):
     return render(request, 'loginpage.html', context)
 
 
-def login_required(args):
-    pass
-
-
-# @login_required
 def dashboard(request):
     user = request.user
     user_profile = User.objects.get(user=user)
@@ -67,8 +62,8 @@ def login_page(request):
 
 
 def dashboard_user(request):
-    if request.user:
-        basket_items = Basket.objects.all()
+    if request.user.is_authenticated:
+        basket_items = Basket.objects.filter(user=request.user)
         historical_bookings = Reservation.objects.filter(user=request.user)
         current_reservations = Reservation.objects.filter(user=request.user)
 
@@ -80,7 +75,11 @@ def dashboard_user(request):
 
 
 def basket(request):
-    basket_items = Basket.objects.all()
+    if request.user.is_authenticated:
+        basket_items = Basket.objects.filter(user=request.user)
+    else:
+        basket_items = []
+
     return render(request, 'basket.html', {'basket': basket_items})
 
 
@@ -146,8 +145,10 @@ def logout_view(request):
     logout(request)
     return redirect('user-login')
 
+
 def admin_dashboard(request):
     return render(request, 'dashboard_admin.html')
+
 
 def generate_inventory_pdf(request):
     response = FileResponse(generate_inventory_report(),
@@ -184,7 +185,8 @@ def generate_inventory_report():
         for item in items:
             p.setFont("Helvetica", 8)  # Adjust the font name and size as needed
             # Draw item details in columns
-            for attribute, position in zip(['name', 'location', 'onsite_only', 'quantity', 'availability'], x_positions):
+            for attribute, position in zip(['name', 'location', 'onsite_only', 'quantity', 'availability'],
+                                           x_positions):
                 p.drawString(position, y, f"{attribute.capitalize()}: {getattr(item, attribute)}")
                 y -= row_height
 
@@ -269,11 +271,14 @@ def generate_usage_history_report():
         print(f"Error generating usage history report: {e}")
         return None
 
+
 def generate_overdue_items_pdf(request):
     response = FileResponse(generate_overdue_items_report(),
                             as_attachment=True,
                             filename='overdue_items_report.pdf')
     return response
+
+
 def generate_overdue_items_report():
     from io import BytesIO
     from .models import Reservation
@@ -307,7 +312,8 @@ def generate_overdue_items_report():
                 p.setFont("Helvetica", 8)  # Adjust the font name and size as needed
 
                 # Draw item details in columns
-                for attribute, position in zip(['name', 'item_type', 'status', 'quantity', 'availability'], x_positions):
+                for attribute, position in zip(['name', 'item_type', 'status', 'quantity', 'availability'],
+                                               x_positions):
                     p.drawString(position, y, f"{attribute.capitalize()}: {getattr(item, attribute)}")
                     y -= row_height
 
@@ -340,6 +346,3 @@ def generate_overdue_items_report():
 
 def main_page(request):
     return render(request, 'mainpage.html')
-
-
-
