@@ -41,6 +41,7 @@ body {
 }
 #basket-items {
     position: relative;
+    min-height: 700px;
     margin: 0 auto;
     width: 70%;
     padding: 7px;
@@ -126,4 +127,9 @@ body {
     margin: 0;
     font-family: inherit;
     color: #949494;
+}
+
+.footer {
+    display: flex;
+    justify-content: end;
 }

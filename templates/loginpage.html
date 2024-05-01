@@ -15,12 +15,12 @@
 <body>
   <div class="nav-bar">
     <a href="{% url 'register-view' %}" id="#register">Register</a>
-    <img src="../../static/images/logo.png" alt="edustore logo">
+    <img src="{% static 'images/logo.png'  %}" alt="edustore logo">
   </div>
 
 	<div class="container h-100">
 		<div class="d-flex justify-content: left h-100">
-            <img src="../../static/images/girl.png" alt="girl">
+            <img src="{% static 'images/girl.png' %}" alt="girl">
 			<div class="user_card">
 
 				<div class="d-flex justify-content: left">
@@ -66,5 +66,10 @@
 		</div>
 	</div>
 </body>
+<footer>
+    <div class="footer">
+        <img src="{% static 'images/copyright.png' %}" alt="copyright Icon" width="50" height="50">
+    </div>
+</footer>
 
 </html>

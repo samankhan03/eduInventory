@@ -410,7 +410,7 @@ section {
     width: 50px;
 }
 .sidenav-list li:hover {
-    box-shadow: 2px 0px 0px #6A6677/* Adjust the shadow size and color as needed */
+    box-shadow: 2px 0px 0px #6A6677
 }
 
 .inv-icon img {
@@ -434,6 +434,10 @@ section {
     cursor: pointer;
 }
 
+.footer {
+    display: flex;
+    justify-content: end;
+}
 
 
 

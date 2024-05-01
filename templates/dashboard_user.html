@@ -89,7 +89,6 @@
                 {% for booking in historical_bookings %}
                 <div class="cards" id = myCard>
                      <div class="card-content">
-{#                       <img src="{% static 'images/headset.png'%}" alt="headset-icon" height="60" width="60">#}
                         <div class="item-name">
                              <tr class="inventory-item" data-user="{{booking.item.name }}" data-item="{{booking.item }}"></tr>
                              <td>{{booking.item.name }}</td>
@@ -114,4 +113,9 @@
     </div>
 <script src="{% static 'script/dashboard_script.js' %}"></script>
 </body>
+<footer>
+    <div class="footer">
+        <img src="{% static 'images/copyright.png' %}" alt="copyright Icon" width="50" height="50">
+    </div>
+</footer>
 </html>

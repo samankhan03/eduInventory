@@ -6,10 +6,10 @@ body {
     box-sizing: border-box;
 }
 .sidenav {
-    background-color: white; /* Background color of the sidebar */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
-    height: 100vh; /* Make sidebar full height */
-    width: 63px; /* Adjust width as needed */
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 63px;
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -30,9 +30,9 @@ body {
 
 .second-block {
     background-color: #bdc0d2;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
-    height: 100vh; /* Make sidebar full height */
-    width: 350px; /* Adjust width as needed */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 350px;
     position: fixed;
     top: 0;
     left: 50px;
@@ -43,12 +43,8 @@ body {
     align-items: center;
 }
 .third-block {
-    /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
-    /* background-color: #cdc4d3;*/
-    /* background-color: #c6bbcc;*/
     background-color: white;
-    height: 100vh; /* Make sidebar full height */
-    /*width: 300px; !* Adjust width as needed *!*/
+    height: 100vh;
     display: flex;
     flex-direction: row;
     margin-top: 53px;
@@ -86,16 +82,16 @@ body {
     width: 73px;
     height: 73px;
     border-radius: 50%;
-    background-color: #6A6677; /* You can adjust the color as needed */
-    margin: 0 auto 20px; /* Centers the icon horizontally and adds margin at the bottom */
-    position: relative; /* Position the container */
+    background-color: #6A6677;
+    margin: 0 auto 20px;
+    position: relative;
     overflow: hidden;
 }
 .pfp-icon {
-    position: absolute; /* Position the image absolutely */
-    top: 50%; /* Align the top of the image to the middle of the container */
-    left: 50%; /* Align the left side of the image to the middle of the container */
-    transform: translate(-50%, -50%); /* Translate the image to the center */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
 
 }
@@ -110,13 +106,13 @@ body {
 
 .girl {
     display: flex;
-    justify-content: center; /* Center the image horizontally */
-    margin-top: 50px; /* Adjust margin-top as needed */
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .girl img {
     position: relative;
-    bottom: -450px; /* Increase this value to move the picture lower down */
+    bottom: -450px;
     display: flex;
     flex-direction: column;
     z-index: 1;
@@ -169,15 +165,14 @@ body {
 
 .card-content img {
     margin-top: -14px;
-    width: 30px; /* Adjust the size of the icon */
-    height: 30px; /* Adjust the size of the icon */
-    margin-right: 33px; /* Add spacing between icon and item name */
-    border-radius: 50px; /* Make the border round */
+    width: 30px;
+    height: 30px;
+    margin-right: 33px;
+    border-radius: 50px;
     padding: 5px;
 }
 
 .cards:hover {
-    /*border: solid #89d770 3px ;*/
     border: solid white 3px;
 }
 
@@ -190,8 +185,8 @@ body {
     cursor: pointer;
     font-size: 11px;
     background-color: #c9c8cf;
-    margin-left: auto; /* Push the container (and its contents) to the right */
-    display: flex; /* Use flexbox to control button positioning */
+    margin-left: auto;
+    display: flex;
 }
 
 .report{
@@ -227,23 +222,25 @@ body {
     box-shadow: 2px 0px 0px #6A6677;
 }
 
-.logout-icon:hover {
-    padding: 5px;
+.logout-icon:hover{
+    padding:5px;
     box-shadow: 2px 0px 0px #6A6677;
 }
+
+
 .button-container {
-    margin-left: auto; /* Push the container (and its contents) to the right */
-    display: flex; /* Use flexbox to control button positioning */
+    margin-left: auto;
+    display: flex;
 }
 
 .deny, .approve {
-    margin-left: 75px; /* Adjust the margin as needed */
-    padding: 5px 5px; /* Adjust padding as needed */
+    margin-left: 75px;
+    padding: 5px 5px;
     margin-left: auto;
 }
 
 .approve {
-    margin-right: 5px; /* Add margin between buttons */
+    margin-right: 5px;
 }
 
 .approve:hover {
@@ -258,4 +255,7 @@ body {
     border-color: #F5554A;
 }
 
-
+.footer {
+    display: flex;
+    justify-content: end;
+}

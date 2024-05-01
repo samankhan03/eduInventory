@@ -20,7 +20,7 @@
             </div>
             
             <div class="logout-icon">
-                <li> <img src="{% static 'images/logout.png' %}" alt="logout-icon" width="50" height="50"> </li>
+                <a href="{% url 'logout' %}"> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </a>
             </div>
         </ul>
     </nav>
@@ -133,6 +133,11 @@
     </div>
 <script src="{% static 'script/admin_dashboard.js' %}"></script>
 </body>
+<footer>
+    <div class="footer">
+        <img src="{% static 'images/copyright.png' %}" alt="copyright Icon" width="50" height="50">
+    </div>
+</footer>
 </html>
 
 

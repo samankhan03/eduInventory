@@ -6,10 +6,10 @@ body {
     box-sizing: border-box;
 }
 .sidenav {
-    background-color: white; /* Background color of the sidebar */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
-    height: 100vh; /* Make sidebar full height */
-    width: 63px; /* Adjust width as needed */
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 63px;
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -31,13 +31,10 @@ body {
 
 
 .second-block {
-    /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
-    /* background-color: #cdc4d3;*/
-    /* background-color: #c6bbcc;*/
     background-color: #bdc0d2;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
-    height: 100vh; /* Make sidebar full height */
-    width: 270px; /* Adjust width as needed */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 270px;
     position: fixed;
     top: 0;
     left: 50px;
@@ -48,12 +45,8 @@ body {
     align-items: center;
 }
 .third-block {
-    /*background-color: #A6A4B5; !* Background color of the sidebar *!*/
-    /* background-color: #cdc4d3;*/
-    /* background-color: #c6bbcc;*/
     background-color: white;
-    height: 100vh; /* Make sidebar full height */
-    /*width: 300px; !* Adjust width as needed *!*/
+    height: 100vh;
     display: flex;
     flex-direction: row;
     margin-top: 53px;
@@ -91,16 +84,16 @@ body {
     width: 73px;
     height: 73px;
     border-radius: 50%;
-    background-color: #6A6677; /* You can adjust the color as needed */
-    margin: 0 auto 20px; /* Centers the icon horizontally and adds margin at the bottom */
-    position: relative; /* Position the container */
+    background-color: #6A6677;
+    margin: 0 auto 20px;
+    position: relative;
     overflow: hidden;
 }
 .pfp-icon {
-    position: absolute; /* Position the image absolutely */
-    top: 50%; /* Align the top of the image to the middle of the container */
-    left: 50%; /* Align the left side of the image to the middle of the container */
-    transform: translate(-50%, -50%); /* Translate the image to the center */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
 
 }
@@ -187,8 +180,8 @@ body {
 }
 
 .card-content img {
-    width: 30px; /* Adjust the size of the icon */
-    height: 30px; /* Adjust the size of the icon */
+    width: 30px;
+    height: 30px;
 }
 .mini-page {
     visibility: hidden;
@@ -210,7 +203,6 @@ body {
 
 
 .cards:hover {
-    /*border: solid #89d770 3px ;*/
     border: solid white 3px;
 }
 .mini-page.visible {
@@ -240,21 +232,16 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    display: flex;
     align-items: center;
     margin: 10px;
 }
 
 
-/*.sidenav-list li:hover {*/
-/*    border: solid green 1px;*/
-/*    box-shadow: 2px 0px 0px #6A6677;*/
-/*}*/
-
 .sidenav-list li:hover{
     padding: 5px;
     box-shadow: 2px 0px 0px #6A6677;
 }
+
 .logout-icon:hover{
     padding:5px;
     box-shadow: 2px 0px 0px #6A6677;
@@ -294,4 +281,9 @@ body {
 .item-name {
 
     width: 80%;
+}
+
+.footer {
+    display: flex;
+    justify-content: end;
 }
