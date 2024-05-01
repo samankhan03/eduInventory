@@ -20,6 +20,7 @@ def register_view(request):
 
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
+        # Creates a user form and send it as context
         if form.is_valid():
             form.save()
             messages.success(request, "Account was created for " + form.cleaned_data['username'])
@@ -39,9 +40,11 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
+            # redirect to dashboard when logged in
             return redirect('dashboard-user')
 
     context = {}
+    # redirect to login page when not logged in
     return render(request, 'loginpage.html', context)
 
 
@@ -51,11 +54,13 @@ def dashboard(request):
     context = {
         'user_profile': user_profile,
     }
+    # creates a User object and send it as context
     return render(request, 'dashboard_user.html', context)
 
 
 def inventory_user(request):
     inventory_items = InventoryItem.objects.all()
+    # creates an InventoryItem object and send it as context
     return render(request, 'inventory_user.html', {'inventory_items': inventory_items})
 
 
@@ -64,6 +69,7 @@ def login_page(request):
 
 
 def dashboard_user(request):
+    # check if user is logged in and filter that specific user to print and show its dashboard cards
     if request.user.is_authenticated:
         basket_items = Basket.objects.filter(user=request.user)
         historical_bookings = Reservation.objects.filter(user=request.user)
@@ -77,6 +83,7 @@ def dashboard_user(request):
 
 
 def basket(request):
+    # check if user is logged in and filter that specific user to show the basket items associated with that user
     if request.user.is_authenticated:
         basket_items = Basket.objects.filter(user=request.user)
     else:
@@ -85,6 +92,7 @@ def basket(request):
     return render(request, 'basket.html', {'basket': basket_items})
 
 
+# logic for adding an item in the basket
 def add_item(request, item_id):
     if request.method == 'POST':
         item_id = int(item_id)
@@ -102,6 +110,7 @@ def add_item(request, item_id):
         return JsonResponse({'error': 'Invalid request method'})
 
 
+# logic basket for showing the basket page
 def get_basket(request):
     if request.method == 'GET':
         borrowed_items = BorrowedItem.objects.all()
@@ -111,12 +120,14 @@ def get_basket(request):
         return render(request, 'basket.html', {'items': borrowed_items})
 
 
+# logic for removing an item in a basket
 def remove_item(request, item_id):
     basket_item = get_object_or_404(Basket, id=item_id)
     basket_item.delete()
     return redirect('basket')
 
 
+# logic for reserving each item in the basket
 def reserve_all_items(request):
     if request.method == 'POST':
         basket_items = Basket.objects.filter(user=request.user)
@@ -144,7 +155,7 @@ def reserve_all_items(request):
 
 
 def logout_view(request):
-    logout(request)
+    logout(request)  # logs out the user
     return redirect('user-login')
 
 
