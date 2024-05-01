@@ -1,3 +1,7 @@
+// Author: Tilly Richter
+// Co-Author: Yhuen Yutico
+
+// function to toggle mini page when button is clicked
 var buttons = document.querySelectorAll('.show-info-button');
 
 buttons.forEach(function(button) {

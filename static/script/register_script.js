@@ -1,3 +1,5 @@
+// Author: Diana Ciceu
+
 /* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
 //We start indexing at one because CSRF_token is considered and input field
  */

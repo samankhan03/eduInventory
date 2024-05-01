@@ -1,3 +1,5 @@
+# Author: Yhuen Yutico
+# Co-Author: Tilly Richter, Diana Ciceu, Sirirath Samith
 from django.urls import path
 from django.contrib import admin
 

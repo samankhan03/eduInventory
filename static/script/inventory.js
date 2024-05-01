@@ -1,3 +1,7 @@
+// Author: Yhuen Yutico
+// Co-Author: Tilly Richter
+
+// function for filtering the inventory list by drop down menu
 function filterInventory() {
     let selectedAvailability = document.getElementById("stock-filter").value;
     let selectedType = document.getElementById("type-filter").value;
@@ -19,6 +23,8 @@ function filterInventory() {
 }
 
 
+
+// function for filtering the inventory list by search field
 document.addEventListener("DOMContentLoaded", function() {
     const searchForm = document.querySelector(".search-bar form");
     const searchInput = document.querySelector(".search-bar input[type='text']");
@@ -44,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// function for adding item to basket
 document.addEventListener('DOMContentLoaded', function() {
     // Add event listener to all add-to-basket forms
     document.querySelectorAll('.add-to-basket-form').forEach(function(form) {
@@ -82,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 
+// function for changing the button style if button is disabled
 document.querySelectorAll('.add-to-basket-btn').forEach(function(button) {
     if (button.hasAttribute('disabled')) {
         button.style.opacity = '0.3';

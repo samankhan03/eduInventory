@@ -1,4 +1,4 @@
-# management/commands/populate_inventory.py
+# Author: Yhuen Yutico
 
 import os
 import pandas as pd

@@ -1,21 +1,23 @@
+// Author: Tilly Richter
+// Co-Author: Yhuen Yutico
+
+
+// Function for removing items in basket
 document.querySelectorAll('.remove').forEach(button => {
     button.addEventListener('click', function() {
         const itemId = this.getAttribute('data-item-id');
 
-        // Send AJAX request to remove the item
         fetch(`/remove-item/${itemId}/`, {
             method: 'DELETE',
             headers: {
-                'X-CSRFToken': '{{ csrf_token }}', // Include CSRF token
+                'X-CSRFToken': '{{ csrf_token }}',
                 'Content-Type': 'application/json'
             }
         })
         .then(response => {
             if (response.ok) {
-                // Item removed successfully, update UI
                 this.closest('.borrowed-item').remove();
             } else {
-                // Handle error response
                 console.error('Failed to remove item');
             }
         })
@@ -26,6 +28,7 @@ document.querySelectorAll('.remove').forEach(button => {
 });
 
 
+// Funtion for reserving items in basket
 document.addEventListener('DOMContentLoaded', function() {
     const reserveButton = document.querySelector('.reserve');
     reserveButton.addEventListener('click', function() {

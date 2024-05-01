@@ -1,3 +1,6 @@
+// Author: Diana Ciceu
+
+// function to hide cards in admin dashboard
 function hideCard(cardId, action) {
         var card = document.getElementById(cardId);
         if (card) {

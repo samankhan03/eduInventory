@@ -1,4 +1,5 @@
-
+/* Author: Tilly Richter */
+/* Co-Author: Yhuen Yutico */
 body {
     font-family: Arial, SansSerif;
     margin-left: 40px;
@@ -13,10 +14,10 @@ body {
     margin-top: 23px;
 }
 .sidenav{
-    background-color: white; /* Background color of the sidebar */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the right */
-    height: 100vh; /* Make sidebar full height */
-    width: 57px; /* Adjust width as needed */
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 57px;
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -100,28 +101,28 @@ section {
 
 .search-bar {
     position: relative;
-    flex-grow: 1; /* Allow the search bar to take up remaining space */
-    margin-left: 60px; /* Add spacing between the dropdown and search bar */
+    flex-grow: 1;
+    margin-left: 60px;
 
 }
 
 .search-bar form {
-    display: flex; /* Align input and button horizontally */
+    display: flex;
 }
 
 .search-bar input[type="text"] {
     padding: 5px 20px;
-    border: 1px solid #dadada; /* Border color */
+    border: 1px solid #dadada;
     border-radius: 10px;
-    margin-right: 5px; /* Add spacing between input and button */
+    margin-right: 5px;
 }
 
 .search-bar button {
     display : none;
     padding: 5px 10px;
-    border: none; /* Border color */
+    border: none;
     cursor: pointer;
-    color: #fff; /* Text color */
+    color: #fff;
 }
 
 .search-icon img{
@@ -147,7 +148,7 @@ section {
     display: inline-block;
 }
 
-/* Style the option elements.. idk what happened but this one didnt work */
+
 .custom-dropdown select option {
     color: #9796a8; /* purple */
     background-color: #fff; /* Background color */
@@ -179,7 +180,7 @@ section {
 
 .inventory-filter select {
     border-radius: 3px;
-    border: none; /* Remove border */
+    border: none;
     appearance: none; /* Remove default appearance */
     background-repeat: no-repeat;
     background-position: right center;
@@ -198,30 +199,23 @@ section {
 }
 
 .inventory-items input[type="checkbox"] {
-    margin-right: 43px; /* Add spacing between checkbox and label */
+    margin-right: 43px;
     margin-top: 11px;
 }
 .inventory-items img {
-    width: 30px; /* Adjust the size of the icon */
-    height: 30px; /* Adjust the size of the icon */
-    margin-right: 33px; /* Add spacing between icon and item name */
-    border-radius: 9px; /* Make the border round */
-    border: 1px solid #ccc; /* Add a border around the icon */
+    width: 30px;
+    height: 30px;
+    margin-right: 33px;
+    border-radius: 9px;
+    border: 1px solid #ccc;
     padding: 5px;
 
 }
 
-
-
-.checkbox input[type="checkbox"]:checked {
-    background-color: #3b5e36; /* Change background color when checked */
-    border-color: #3b5e36; /* Change border color when checked */
-}
-
 .inventory-titles {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Adjust the number of columns to match the items */
-    gap: 0; /* Adjust the gap between header items */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
     font-size: 13px;
     color: #808080;
     padding-bottom: 3px;
@@ -233,12 +227,12 @@ section {
 
     position: relative;
     width: 100%;
-    height: 1px; /* Adjust the height of the border */
-    background-color: #cccccc; /* Adjust the color of the border */
-    margin: 5px 0; /* Add border for each item */
+    height: 1px;
+    background-color: #cccccc;
+    margin: 5px 0;
 }
 .item-info {
-    padding-top: 13px; /* this gives space between the border and items*/
+    padding-top: 13px;
 }
 
 .add-button {
@@ -266,13 +260,13 @@ section {
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    visibility: hidden; /* Initially hidden */
+    visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.3s linear; /* Smooth transition */
+    transition: visibility 0s, opacity 0.3s linear;
 }
 
 .product.active .product-description {
-    visibility: visible; /* Show when active */
+    visibility: visible;
     opacity: 1;
 }
 
@@ -280,8 +274,8 @@ section {
     border: solid black 1px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around; /* Distribute items evenly along the main axis */
-    align-items: center; /* Center items along the cross axis */
+    justify-content: space-around;
+    align-items: center;
 }
 
 .header-item {
@@ -295,7 +289,7 @@ section {
 
 .small-column {
     flex: 0 0 auto; /* Prevents this column from growing or shrinking */
-    width: 25px; /* Adjust width as needed */
+    width: 25px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -313,7 +307,6 @@ section {
 
 
 .header-hash{
-    /*border: solid blue 1px;*/
     width: 100%;
     display:flex;
     flex-direction: row;
@@ -323,18 +316,15 @@ section {
 
 .hash {
     width: 10%;
-    /*border: solid green 1px;*/
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .item-name {
     width: 90%;
-    /*border: solid red 1px;*/
     padding-left: 100px;
 }
 
-/* Add table styles here */
 #inventory-list table {
     width: 100%;
     border-collapse: collapse;
@@ -382,12 +372,6 @@ section {
     background-color: #f5f5f5;
 }
 
-/* Optional: Style alternating rows */
-#inventory-list tr:nth-child(even) {
-    background-color: #fff;
-}
-
-/* Optional: Add hover effect to rows */
 #inventory-list tr:hover {
     background-color: #f2f2f2;
 }

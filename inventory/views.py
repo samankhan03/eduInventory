@@ -1,3 +1,5 @@
+# Author: Tilly Richter
+# Co-Author: Yhuen Yutico, Diana Ciceu
 import datetime
 from datetime import timedelta
 from io import BytesIO

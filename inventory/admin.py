@@ -1,3 +1,5 @@
+# Author: Yhuen Yutico
+# Co-Author: Tilly Richter
 from django.contrib import admin
 from .models import InventoryItem, BorrowedItem, Reservation, Basket
 
