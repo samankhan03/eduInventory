@@ -18,7 +18,7 @@
             <div class="basket-icon" >
                 <li><a href="{% url 'dashboard-user' %}"> <img src="{% static 'images/bell2.png'%}" alt="bell-icon" width="50" height="50"></a> </li>
             </div>
-            
+
             <div class="logout-icon">
                 <a href="{% url 'logout' %}"> <img src="{% static 'images/logout.png'%}" alt="logout-icon" width="50" height="50"> </a>
             </div>
@@ -42,7 +42,7 @@
             {{ request.user.username }}
         {% endif %} </h2>
         <div class="welcome"> Welcome to your dashboard! </div>
-        
+
     </div>
 
     <div class="third-block">
@@ -51,7 +51,7 @@
                 {% for booking in current_reservations %}
                 <div class="cards" id = myCard>
                     <div class="card-content">
-                        <img src="{% static 'images/laptop.png'%}" alt="laptop-icon" height="60" width="60">
+                        <img src="{% static 'images/calendar.png'%}" alt="laptop-icon">
                         <div class="item-name"> 
                             <tr class="inventory-item" data-user="{{ booking.item.name }}" data-item="{{ booking.item }}"></tr>
                             <td>{{ booking.item.name }}</td>
@@ -68,7 +68,7 @@
                 {% for basket_item in basket %}
                 <div class="cards">
                     <div class="card-content">
-                        <img src="{% static 'images/macmini.png'%}" alt="laptop-icon" height="90" width="90">
+                        <img src="{% static 'images/dashbasket.png'%}" alt="laptop-icon" height="90" width="90">
                                <div class="item-name">
                                       
                                           <tr class="inventory-item" data-user="{{ basket_item.inventory_item.name }}" data-item="{{ basket_item.item }}"></tr>
@@ -89,6 +89,7 @@
                 {% for booking in historical_bookings %}
                 <div class="cards" id = myCard>
                      <div class="card-content">
+                       <img src="{% static 'images/clock2.png'%}" alt="headset-icon" height="10" width=10">
                         <div class="item-name">
                              <tr class="inventory-item" data-user="{{booking.item.name }}" data-item="{{booking.item }}"></tr>
                              <td>{{booking.item.name }}</td>
