@@ -260,10 +260,6 @@ body {
     box-shadow: 2px 0px 0px #6A6677;
 }
 
-.inv-icon img {
-    width: 100%;
-    object-fit: fill;
-}
 
 .add-button a {
     text-decoration: none;
