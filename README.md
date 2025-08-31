@@ -16,27 +16,27 @@ eduInventory is a web-based inventory management system for the School of Comput
 
 ## Installation & Running the Project
 
-Delete all migration files except __init__.py
+* Delete all migration files except __init__.py
 
-Delete the database file db.sqlite3
+* Delete the database file db.sqlite3
 
 ### Install required packages:
 
-pip install django
-pip install openpyxl
-pip install reportlab
+* pip install django
+* pip install openpyxl
+* pip install reportlab
 
 
 ### Run the following commands:
 
-python manage.py makemigrations
-python manage.py migrate
-python manage.py populate_inventory
-python manage.py createsuperuser
-python manage.py runserver
+* python manage.py makemigrations
+* python manage.py migrate
+* python manage.py populate_inventory
+* python manage.py createsuperuser
+* python manage.py runserver
 
 
-Open http://127.0.0.1:8000/ in your browser to access the application.
+- Open http://127.0.0.1:8000/ in your browser to access the application.
 
 Admin Account:
 
@@ -46,8 +46,8 @@ Password: hihi
 
 ### Notes
 
-All project files are relative paths to ensure portability.
+* All project files are relative paths to ensure portability.
 
-The project uses GitHub for version control and collaboration.
+* The project uses GitHub for version control and collaboration.
 
-Includes both frontend and backend functionalities.
+* Includes both frontend and backend functionalities.
