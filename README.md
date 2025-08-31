@@ -4,15 +4,15 @@ eduInventory is a web-based inventory management system for the School of Comput
 
 ## Features
 
-Secure user sign up and login
+* Secure user sign up and login
 
-View and filter equipment inventory
+* View and filter equipment inventory
 
-Make and manage reservations
+* Make and manage reservations
 
-Admin dashboard for managing inventory and users
+* Admin dashboard for managing inventory and users
 
-Generate inventory and usage reports
+* Generate inventory and usage reports
 
 ## Installation & Running the Project
 
