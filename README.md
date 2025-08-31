@@ -1,6 +1,6 @@
 # eduInventory
 
-eduInventory is a web-based inventory management system for the School of Computer Science and Engineering. It allows users to view, search, filter, and reserve equipment, while administrators can manage inventory, approve users, and generate reports. Built using Django and SQLite, the application focuses on usability, security, and maintainability.
+eduInventory is a web-based inventory management system developed as part of a collaborative group project for the School of Computer Science and Engineering. The system enables users to view, search, filter, and reserve equipment, while administrators can manage inventory, approve users, and generate reports. Built using Django and SQLite, the application emphasizes usability, security, and maintainability.
 
 ## Features
 
